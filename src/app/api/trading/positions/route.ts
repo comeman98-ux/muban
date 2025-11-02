@@ -12,7 +12,7 @@ import { BinanceConnector } from '@/lib/trading/connectors/binance';
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const symbol = searchParams.get('symbol') || 'XAUUSDT';
+    const symbol = searchParams.get('symbol') || 'BTCUSDT';
 
     const apiKey = process.env.BINANCE_API_KEY || '';
     const apiSecret = process.env.BINANCE_API_SECRET || '';

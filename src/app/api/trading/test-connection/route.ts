@@ -46,8 +46,8 @@ export async function GET() {
 
     // Get a few candles to test data fetching
     const candles = await binance.getHistoricalCandles(
-      'XAUUSDT',
-      '1m',
+      'BTCUSDT',
+      '15m',
       10
     );
 

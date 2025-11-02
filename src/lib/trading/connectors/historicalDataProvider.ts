@@ -137,8 +137,6 @@ export class HistoricalDataProvider {
       'ATOMUSDT': 10,
       'UNIUSDT': 6.5,
       'LTCUSDT': 85,
-      'XAUUSDT': 2050, // Gold
-      'XAUUSD': 2050,
       'DEFAULT': 100,
     };
 
@@ -159,8 +157,6 @@ export class HistoricalDataProvider {
       'ADAUSDT': 3000000,
       'SOLUSDT': 600000,
       'DOGEUSDT': 10000000,
-      'XAUUSDT': 50000,
-      'XAUUSD': 50000,
       'DEFAULT': 100000,
     };
 

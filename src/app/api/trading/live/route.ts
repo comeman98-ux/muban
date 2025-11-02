@@ -17,7 +17,7 @@ import type { TradingConfig } from '@/lib/trading/types';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { action, tradingConfig, symbol = 'XAUUSDT' } = body;
+    const { action, tradingConfig, symbol = 'BTCUSDT' } = body;
 
     if (!action) {
       return NextResponse.json(
@@ -182,8 +182,8 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const symbol = searchParams.get('symbol') || 'XAUUSDT';
-    const interval = searchParams.get('interval') || '1m';
+    const symbol = searchParams.get('symbol') || 'BTCUSDT';
+    const interval = searchParams.get('interval') || '15m';
 
     const apiKey = process.env.BINANCE_API_KEY || '';
     const apiSecret = process.env.BINANCE_API_SECRET || '';

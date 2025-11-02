@@ -56,7 +56,7 @@ export class BinanceConnector {
   ): Promise<Candle[]> {
     try {
       const candles = await this.client.futuresCandles({
-        symbol: symbol.replace('/', ''), // XAUUSD -> XAUUSDT
+        symbol: symbol.replace('/', ''), // Remove slash: BTC/USDT -> BTCUSDT
         interval: this.convertInterval(interval),
         limit,
         startTime,

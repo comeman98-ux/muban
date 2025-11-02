@@ -36,8 +36,8 @@ export async function GET(request: NextRequest) {
       }))
       .sort((a: any, b: any) => a.symbol.localeCompare(b.symbol));
 
-    // Get popular symbols to show first
-    const popularSymbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'DOGEUSDT', 'SOLUSDT', 'MATICUSDT', 'DOTUSDT', 'AVAXUSDT', 'XAUUSDT'];
+    // Get popular symbols to show first (only real Binance USDS-margined futures)
+    const popularSymbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'DOGEUSDT', 'SOLUSDT', 'MATICUSDT', 'DOTUSDT', 'AVAXUSDT'];
 
     const popular = symbols.filter((s: any) => popularSymbols.includes(s.symbol));
     const others = symbols.filter((s: any) => !popularSymbols.includes(s.symbol));
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Error fetching symbols:', error);
 
-    // Fallback to default symbols if Binance API fails
+    // Fallback to default symbols if Binance API fails (only real Binance futures)
     const fallbackSymbols = [
       { symbol: 'BTCUSDT', baseAsset: 'BTC', quoteAsset: 'USDT', pricePrecision: 2, quantityPrecision: 3 },
       { symbol: 'ETHUSDT', baseAsset: 'ETH', quoteAsset: 'USDT', pricePrecision: 2, quantityPrecision: 3 },
@@ -62,7 +62,6 @@ export async function GET(request: NextRequest) {
       { symbol: 'MATICUSDT', baseAsset: 'MATIC', quoteAsset: 'USDT', pricePrecision: 4, quantityPrecision: 0 },
       { symbol: 'DOTUSDT', baseAsset: 'DOT', quoteAsset: 'USDT', pricePrecision: 3, quantityPrecision: 1 },
       { symbol: 'AVAXUSDT', baseAsset: 'AVAX', quoteAsset: 'USDT', pricePrecision: 2, quantityPrecision: 1 },
-      { symbol: 'XAUUSDT', baseAsset: 'XAU', quoteAsset: 'USDT', pricePrecision: 2, quantityPrecision: 3 },
     ];
 
     return NextResponse.json({

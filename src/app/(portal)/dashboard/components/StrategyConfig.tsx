@@ -12,16 +12,16 @@ export default function StrategyConfig({ config, onConfigChange }: StrategyConfi
   const [popularSymbols, setPopularSymbols] = useState<string[]>([]);
   const [loadingSymbols, setLoadingSymbols] = useState(false);
 
-  // 热门交易对列表（默认）
+  // 热门交易对列表（默认） - 仅币安U本位合约真实交易对
   const defaultSymbols = [
-    'XAUUSDT', // 黄金
     'BTCUSDT', // 比特币
     'ETHUSDT', // 以太坊
-    'SOLUSDT', // Solana
     'BNBUSDT', // BNB
+    'SOLUSDT', // Solana
     'ADAUSDT', // Cardano
     'DOGEUSDT', // Dogecoin
     'MATICUSDT', // Polygon
+    'XRPUSDT', // Ripple
   ];
 
   useEffect(() => {
@@ -205,7 +205,7 @@ export default function StrategyConfig({ config, onConfigChange }: StrategyConfi
               ))}
             </select>
             <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
-              默认: XAUUSDT (黄金/USDT)
+              默认: BTCUSDT (比特币/USDT)
             </p>
           </div>
           <div>

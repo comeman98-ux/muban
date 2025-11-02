@@ -210,11 +210,11 @@ export default function CompactStrategyConfig({
                     ))
                   ) : (
                     <>
-                      <option value="XAUUSDT">XAUUSDT (黄金)</option>
                       <option value="BTCUSDT">BTCUSDT (比特币)</option>
                       <option value="ETHUSDT">ETHUSDT (以太坊)</option>
-                      <option value="SOLUSDT">SOLUSDT (Solana)</option>
                       <option value="BNBUSDT">BNBUSDT (BNB)</option>
+                      <option value="SOLUSDT">SOLUSDT (Solana)</option>
+                      <option value="ADAUSDT">ADAUSDT (Cardano)</option>
                     </>
                   )}
                 </select>
