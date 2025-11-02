@@ -11,6 +11,11 @@ const ProfitChart = dynamic(() => import('./ProfitChart'), {
   loading: () => <div className="w-full h-[400px] flex items-center justify-center bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700">加载图表中...</div>
 });
 
+const BacktestChart = dynamic(() => import('./BacktestChart'), {
+  ssr: false,
+  loading: () => <div className="w-full h-[500px] flex items-center justify-center bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700">加载K线图中...</div>
+});
+
 interface BacktestPanelProps {
   tradingConfig: TradingConfig;
   onConfigChange?: (config: TradingConfig) => void;
@@ -263,6 +268,20 @@ export default function BacktestPanel({ tradingConfig: initialConfig, onConfigCh
               />
             </div>
           </div>
+
+          {/* K-Line Chart with Trade Markers */}
+          {(results as any).candles && (results as any).candles.length > 0 && (
+            <div className="bg-white dark:bg-gray-800 p-8 border-2 border-black dark:border-white">
+              <h3 className="text-2xl font-bold text-black dark:text-white mb-6 pb-3 border-b-2 border-black dark:border-white">
+                K线图与交易标记
+              </h3>
+              <BacktestChart
+                candles={(results as any).candles}
+                trades={results.trades}
+                symbol={tradingConfig.symbol}
+              />
+            </div>
+          )}
 
           {/* Equity Curve Chart */}
           <div className="bg-white dark:bg-gray-800 p-8 border-2 border-black dark:border-white">

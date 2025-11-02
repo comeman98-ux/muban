@@ -2,8 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import dynamic from 'next/dynamic';
 import CompactStrategyConfig from './CompactStrategyConfig';
 import type { TradingConfig, Signal } from '@/lib/trading/types';
+
+const LiveTradingChart = dynamic(() => import('./LiveTradingChart'), {
+  ssr: false,
+  loading: () => <div className="w-full h-[600px] flex items-center justify-center bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700">加载实时图表中...</div>
+});
 
 interface LiveTradePanelProps {
   tradingConfig: TradingConfig;
@@ -318,6 +324,14 @@ export default function LiveTradePanel({ tradingConfig: initialConfig, onConfigC
             </div>
           </div>
         )}
+      </div>
+
+      {/* Live Trading Chart */}
+      <div className="bg-white dark:bg-gray-800 p-8 border-2 border-black dark:border-white">
+        <h2 className="text-2xl font-bold text-black dark:text-white mb-6 pb-3 border-b-2 border-black dark:border-white">
+          实时行情图表
+        </h2>
+        <LiveTradingChart symbol={tradingConfig.symbol} interval={tradingConfig.interval} />
       </div>
 
       {/* Warning Banner */}

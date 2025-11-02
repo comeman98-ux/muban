@@ -132,8 +132,8 @@ export class XAUUSDStrategy {
   }
 
   /**
-   * Check if long entry conditions are met - MODIFIED FOR MORE SIGNALS
-   * Changed from strict crossover to MACD position check for more trading opportunities
+   * Check if long entry conditions are met - SIMPLIFIED FOR MORE SIGNALS
+   * Strategy: Look for price momentum with confirming indicators
    */
   private checkLongEntry(
     price: number,
@@ -141,64 +141,52 @@ export class XAUUSDStrategy {
     candles: Candle[],
     aggressiveness: 1 | 2 | 3
   ): { signal: boolean; reason: string } {
-    const macdConfig: MACDConfig = {
-      fastPeriod: this.config.strategy.indicators.macd.fastPeriod,
-      slowPeriod: this.config.strategy.indicators.macd.slowPeriod,
-      signalPeriod: this.config.strategy.indicators.macd.signalPeriod,
-    };
+    // Condition 1: Price action - near or above Keltner OR Bollinger
+    const nearKeltnerUpper = price >= indicators.keltner.upper * 0.995; // Within 0.5% of upper band
+    const nearBollingerUpper = price >= indicators.bollinger.upper * 0.995;
+    const priceBreakout = nearKeltnerUpper || nearBollingerUpper;
 
-    // Base conditions - Modified to be less restrictive
-    const priceAboveKeltner = price > indicators.keltner.upper;
-    const priceAboveBollinger = price > indicators.bollinger.upper;
-
-    // Check for recent MACD crossover (within last 5 candles) OR current bullish position
-    const macdCrossoverUp = isMACDBullishCrossover(candles, macdConfig);
-    const macdBullish = indicators.macd.macd > indicators.macd.signal && indicators.macd.histogram > 0;
-    const macdCondition = macdCrossoverUp || macdBullish; // Accept either crossover or bullish position
-
-    const longBase = priceAboveKeltner && priceAboveBollinger && macdCondition;
-
-    if (!longBase) {
-      return { signal: false, reason: 'Base conditions not met' };
+    if (!priceBreakout) {
+      return { signal: false, reason: 'Price not breaking out' };
     }
 
-    // Aggressiveness filters
-    let longFilter = false;
+    // Condition 2: MACD bullish
+    const macdBullish = indicators.macd.macd > indicators.macd.signal;
+
+    if (!macdBullish) {
+      return { signal: false, reason: 'MACD not bullish' };
+    }
+
+    // Condition 3: Aggressiveness-based filters
+    let signalConfirmed = false;
     let reason = '';
 
     if (aggressiveness === 1) {
-      // Conservative: Python line 219-224
-      const cciThreshold = 50;
-      longFilter =
-        indicators.cci > cciThreshold &&
-        indicators.macd.macd > indicators.macd.signal &&
-        indicators.cci > 0;
-      reason = longFilter
-        ? `LONG: KC/BB breakout + MACD crossover + CCI>${cciThreshold}`
-        : `CCI or MACD conditions failed`;
+      // Conservative: Need strong CCI confirmation
+      const cciStrong = indicators.cci > 50;
+      signalConfirmed = cciStrong;
+      reason = signalConfirmed
+        ? `LONG (保守): Price breakout + MACD bullish + CCI>${indicators.cci.toFixed(0)}`
+        : `CCI too weak (${indicators.cci.toFixed(0)} < 50)`;
     } else if (aggressiveness === 2) {
-      // Moderate: Python line 225-229
-      const cciThreshold = 20;
-      longFilter =
-        indicators.cci > cciThreshold &&
-        indicators.macd.macd > indicators.macd.signal;
-      reason = longFilter
-        ? `LONG: KC/BB breakout + MACD crossover + CCI>${cciThreshold}`
-        : `CCI>${cciThreshold} or MACD position failed`;
+      // Moderate: Need positive CCI
+      const cciPositive = indicators.cci > 0;
+      signalConfirmed = cciPositive;
+      reason = signalConfirmed
+        ? `LONG (适中): Price breakout + MACD bullish + CCI>${indicators.cci.toFixed(0)}`
+        : `CCI negative (${indicators.cci.toFixed(0)})`;
     } else {
-      // Aggressive: Python line 230-231
-      longFilter = indicators.macd.macd > indicators.macd.signal;
-      reason = longFilter
-        ? `LONG (aggressive): KC/BB breakout + MACD crossover + MACD bullish`
-        : `MACD not bullish`;
+      // Aggressive: MACD bullish is enough
+      signalConfirmed = true;
+      reason = `LONG (激进): Price breakout + MACD bullish`;
     }
 
-    return { signal: longFilter, reason };
+    return { signal: signalConfirmed, reason };
   }
 
   /**
-   * Check if short entry conditions are met - MODIFIED FOR MORE SIGNALS
-   * Changed from strict crossover to MACD position check for more trading opportunities
+   * Check if short entry conditions are met - SIMPLIFIED FOR MORE SIGNALS
+   * Strategy: Look for price momentum with confirming indicators
    */
   private checkShortEntry(
     price: number,
@@ -206,59 +194,47 @@ export class XAUUSDStrategy {
     candles: Candle[],
     aggressiveness: 1 | 2 | 3
   ): { signal: boolean; reason: string } {
-    const macdConfig: MACDConfig = {
-      fastPeriod: this.config.strategy.indicators.macd.fastPeriod,
-      slowPeriod: this.config.strategy.indicators.macd.slowPeriod,
-      signalPeriod: this.config.strategy.indicators.macd.signalPeriod,
-    };
+    // Condition 1: Price action - near or below Keltner OR Bollinger
+    const nearKeltnerLower = price <= indicators.keltner.lower * 1.005; // Within 0.5% of lower band
+    const nearBollingerLower = price <= indicators.bollinger.lower * 1.005;
+    const priceBreakdown = nearKeltnerLower || nearBollingerLower;
 
-    // Base conditions - Modified to be less restrictive
-    const priceBelowKeltner = price < indicators.keltner.lower;
-    const priceBelowBollinger = price < indicators.bollinger.lower;
-
-    // Check for recent MACD crossover (within last 5 candles) OR current bearish position
-    const macdCrossoverDown = isMACDBearishCrossover(candles, macdConfig);
-    const macdBearish = indicators.macd.macd < indicators.macd.signal && indicators.macd.histogram < 0;
-    const macdCondition = macdCrossoverDown || macdBearish; // Accept either crossover or bearish position
-
-    const shortBase = priceBelowKeltner && priceBelowBollinger && macdCondition;
-
-    if (!shortBase) {
-      return { signal: false, reason: 'Base conditions not met' };
+    if (!priceBreakdown) {
+      return { signal: false, reason: 'Price not breaking down' };
     }
 
-    // Aggressiveness filters
-    let shortFilter = false;
+    // Condition 2: MACD bearish
+    const macdBearish = indicators.macd.macd < indicators.macd.signal;
+
+    if (!macdBearish) {
+      return { signal: false, reason: 'MACD not bearish' };
+    }
+
+    // Condition 3: Aggressiveness-based filters
+    let signalConfirmed = false;
     let reason = '';
 
     if (aggressiveness === 1) {
-      // Conservative: Python line 242-247
-      const cciThreshold = 50;
-      shortFilter =
-        indicators.cci < -cciThreshold &&
-        indicators.macd.macd < indicators.macd.signal &&
-        indicators.cci < 0;
-      reason = shortFilter
-        ? `SHORT: KC/BB breakdown + MACD crossover + CCI<-${cciThreshold}`
-        : `CCI or MACD conditions failed`;
+      // Conservative: Need strong CCI confirmation
+      const cciStrong = indicators.cci < -50;
+      signalConfirmed = cciStrong;
+      reason = signalConfirmed
+        ? `SHORT (保守): Price breakdown + MACD bearish + CCI<${indicators.cci.toFixed(0)}`
+        : `CCI not strong enough (${indicators.cci.toFixed(0)} > -50)`;
     } else if (aggressiveness === 2) {
-      // Moderate: Python line 248-252
-      const cciThreshold = 20;
-      shortFilter =
-        indicators.cci < -cciThreshold &&
-        indicators.macd.macd < indicators.macd.signal;
-      reason = shortFilter
-        ? `SHORT: KC/BB breakdown + MACD crossover + CCI<-${cciThreshold}`
-        : `CCI<-${cciThreshold} or MACD position failed`;
+      // Moderate: Need negative CCI
+      const cciNegative = indicators.cci < 0;
+      signalConfirmed = cciNegative;
+      reason = signalConfirmed
+        ? `SHORT (适中): Price breakdown + MACD bearish + CCI<${indicators.cci.toFixed(0)}`
+        : `CCI positive (${indicators.cci.toFixed(0)})`;
     } else {
-      // Aggressive: Python line 253-254
-      shortFilter = indicators.macd.macd < indicators.macd.signal;
-      reason = shortFilter
-        ? `SHORT (aggressive): KC/BB breakdown + MACD crossover + MACD bearish`
-        : `MACD not bearish`;
+      // Aggressive: MACD bearish is enough
+      signalConfirmed = true;
+      reason = `SHORT (激进): Price breakdown + MACD bearish`;
     }
 
-    return { signal: shortFilter, reason };
+    return { signal: signalConfirmed, reason };
   }
 
   /**
