@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // 品牌标语集合 - 体现力量、精准、专业
 const slogans = [
@@ -46,6 +47,7 @@ interface BrandSlogansProps {
 
 export default function BrandSlogans({ showEnglish = false, className = "" }: BrandSlogansProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,9 +70,9 @@ export default function BrandSlogans({ showEnglish = false, className = "" }: Br
           className="absolute inset-0 flex flex-col items-center justify-center"
         >
           <p className="text-lg md:text-xl font-bold text-center text-gray-800 dark:text-gray-200 tracking-wide">
-            {slogan.zh}
+            {language === 'en' ? slogan.en : slogan.zh}
           </p>
-          {showEnglish && (
+          {showEnglish && language === 'zh' && (
             <p className="text-sm text-gray-600 dark:text-gray-400 text-center mt-2 italic">
               {slogan.en}
             </p>
@@ -84,13 +86,14 @@ export default function BrandSlogans({ showEnglish = false, className = "" }: Br
 // 静态标语组件 - 用于特定位置
 export function StaticSlogan({ index = 0, showEnglish = false }: { index?: number; showEnglish?: boolean }) {
   const slogan = slogans[index % slogans.length];
+  const { language } = useLanguage();
 
   return (
     <div className="text-center">
       <p className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 tracking-wide">
-        {slogan.zh}
+        {language === 'en' ? slogan.en : slogan.zh}
       </p>
-      {showEnglish && (
+      {showEnglish && language === 'zh' && (
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
           {slogan.en}
         </p>
