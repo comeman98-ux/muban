@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import { ShineLinkButton } from '@/components/custom/ShineButton';
 
 export default function PrivacyPolicyPage() {
   const { language } = useLanguage();
@@ -295,12 +296,12 @@ export default function PrivacyPolicyPage() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <a
+          <ShineLinkButton
             href="/"
-            className="inline-block px-8 py-3 bg-black dark:bg-white text-white dark:text-black font-bold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+            className="inline-block px-8 py-3 hover:bg-gray-800 dark:hover:bg-gray-200"
           >
             {language === 'zh' ? '返回首页' : 'Back to Home'}
-          </a>
+          </ShineLinkButton>
         </motion.div>
       </div>
     </div>

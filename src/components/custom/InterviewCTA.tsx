@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
 import EmailContactModal from './EmailContactModal';
+import ShineButton from './ShineButton';
 
 export default function InterviewCTA() {
   const { language } = useLanguage();
@@ -147,11 +148,9 @@ export default function InterviewCTA() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-center mb-8"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <ShineButton
               onClick={() => setIsModalOpen(true)}
-              className="inline-block px-12 py-5 bg-white dark:bg-black text-black dark:text-white text-xl font-bold border-4 border-white dark:border-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 shadow-2xl"
+              className="inline-block px-12 py-5 bg-white dark:bg-black text-black dark:text-white text-xl font-bold border-4 border-white dark:border-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black shadow-2xl"
             >
               {currentContent.button}
               <motion.span
@@ -161,7 +160,7 @@ export default function InterviewCTA() {
               >
                 →
               </motion.span>
-            </motion.button>
+            </ShineButton>
           </motion.div>
 
           {/* Note */}

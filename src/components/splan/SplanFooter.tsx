@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ShineLinkButton } from '@/components/custom/ShineButton';
 
 export default function SplanFooter() {
   const { t, language } = useLanguage();
@@ -84,10 +85,11 @@ export default function SplanFooter() {
               <li>{t('footer.contact.focus')}</li>
               <li>{t('footer.contact.cultivate')}</li>
               <li className="pt-2">
-                <Link href="/splan/join-us"
-                      className="inline-block px-4 py-2 bg-white text-black hover:bg-gray-200 transition-colors">
+                <ShineLinkButton
+                  href="/splan/join-us"
+                  className="inline-block px-4 py-2">
                   {t('footer.contact.apply')}
-                </Link>
+                </ShineLinkButton>
               </li>
             </ul>
           </div>
