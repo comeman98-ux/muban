@@ -12,6 +12,7 @@ export default function UnifiedNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
@@ -30,8 +31,25 @@ export default function UnifiedNavbar() {
       link: "/splan/join-us",
     },
     {
+      name: language === 'zh' ? '教育' : 'Education',
+      link: "/education",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: language === 'zh' ? '基础知识' : 'Basics', link: '/education#basics' },
+        { name: language === 'zh' ? '技术分析' : 'Technical Analysis', link: '/education#technical' },
+        { name: language === 'zh' ? '交易策略' : 'Trading Strategies', link: '/education#strategies' },
+        { name: language === 'zh' ? '风险管理' : 'Risk Management', link: '/education#risk' },
+      ]
+    },
+    {
       name: t('nav.blog'),
       link: "/splan/blog",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: language === 'zh' ? '所有文章' : 'All Posts', link: '/splan/blog' },
+        { name: language === 'zh' ? '市场分析' : 'Market Analysis', link: '/splan/blog?category=analysis' },
+        { name: language === 'zh' ? '交易技巧' : 'Trading Tips', link: '/splan/blog?category=tips' },
+      ]
     },
     {
       name: t('nav.psychology'),
@@ -44,6 +62,12 @@ export default function UnifiedNavbar() {
     {
       name: t('nav.tradingTools'),
       link: "/tools/position-calculator",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: language === 'zh' ? '仓位计算器' : 'Position Calculator', link: '/tools/position-calculator' },
+        { name: language === 'zh' ? '风险回报计算器' : 'Risk/Reward Calculator', link: '/tools/risk-reward-calculator' },
+        { name: language === 'zh' ? '点值计算器' : 'Pip Calculator', link: '/tools/pip-calculator' },
+      ]
     },
     {
       name: t('nav.faq'),
@@ -96,28 +120,75 @@ export default function UnifiedNavbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item, index) => (
-              <Link
+              <div
                 key={index}
-                href={item.link}
-                className="relative px-4 py-2 text-sm font-medium transition-colors group"
+                className="relative"
+                onMouseEnter={() => item.hasDropdown && setOpenDropdown(item.name)}
+                onMouseLeave={() => item.hasDropdown && setOpenDropdown(null)}
               >
-                <span
-                  className={`relative z-10 ${
-                    isActive(item.link)
-                      ? 'text-black dark:text-white font-bold'
-                      : 'text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white'
-                  }`}
+                <Link
+                  href={item.link}
+                  className="relative px-4 py-2 text-sm font-medium transition-colors group flex items-center gap-1"
                 >
-                  {item.name}
-                </span>
-                {isActive(item.link) && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-black dark:bg-white"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
+                  <span
+                    className={`relative z-10 ${
+                      isActive(item.link)
+                        ? 'text-black dark:text-white font-bold'
+                        : 'text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white'
+                    }`}
+                  >
+                    {item.name}
+                  </span>
+                  {item.hasDropdown && (
+                    <svg
+                      className={`w-4 h-4 transition-transform ${
+                        openDropdown === item.name ? 'rotate-180' : ''
+                      } ${
+                        isActive(item.link)
+                          ? 'text-black dark:text-white'
+                          : 'text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white'
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                  {isActive(item.link) && !item.hasDropdown && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-black dark:bg-white"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </Link>
+
+                {/* Dropdown Menu */}
+                {item.hasDropdown && item.dropdownItems && (
+                  <AnimatePresence>
+                    {openDropdown === item.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-1 w-56 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg z-50"
+                      >
+                        {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                          <Link
+                            key={dropdownIndex}
+                            href={dropdownItem.link}
+                            className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white transition-colors border-b border-gray-100 dark:border-gray-800 last:border-b-0"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -204,17 +275,56 @@ export default function UnifiedNavbar() {
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.link}
-                  className={`block px-4 py-3 text-sm font-medium transition-colors ${
-                    isActive(item.link)
-                      ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white font-bold'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                <div key={index}>
+                  {item.hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                        className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors ${
+                          isActive(item.link)
+                            ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white font-bold'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                        }`}
+                      >
+                        <span>{item.name}</span>
+                        <svg
+                          className={`w-4 h-4 transition-transform ${
+                            openDropdown === item.name ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {openDropdown === item.name && item.dropdownItems && (
+                        <div className="pl-4 mt-1 space-y-1">
+                          {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                            <Link
+                              key={dropdownIndex}
+                              href={dropdownItem.link}
+                              className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white transition-colors"
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                        isActive(item.link)
+                          ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white font-bold'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
               ))}
 
               {/* Mobile Language Toggle */}
