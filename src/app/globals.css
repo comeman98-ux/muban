@@ -34,31 +34,47 @@
   }
 
 
-/* 1. 恢复K线图背景区域为初始状态 */
-.hero-section, .banner-section, .kline-background {
-  background: initial !important; /* 恢复初始背景 */
-  background-image: initial !important; /* 恢复背景图片 */
-}
-
-/* 2. 将黑框改为白框并确保文字可见 */
-.black-box, .dark-card, .advantage-box, .feature-card {
-  background-color: white !important; /* 白框 */
-  color: #333 !important; /* 深色文字确保可读 */
-  border: 1px solid #e0e0e0 !important; /* 添加浅色边框 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important; /* 添加阴影增强层次 */
-}
-
-/* 3. 确保白框内的文字可读 */
-.black-box *, .dark-card *, .advantage-box *, .feature-card * {
-  color: #333 !important; /* 深色文字 */
-}
-
-/* 4. 保留其他区域的淡绿色背景 */
+/* 1. 主体背景改为淡绿色，但不影响其他元素 */
 body {
-  background-color: #f0fff4 !important;
+  background-color: #f0fff4;
 }
 
-/* 5. 但排除K线图区域 */
-body:not(.kline-background):not(.hero-section) {
-  background-color: #f0fff4 !important;
+/* 2. 特别排除K线图区域 */
+.hero-section, 
+.banner-area, 
+[class*="hero"], 
+[class*="banner"] {
+  background: inherit !important;
+  background-image: inherit !important;
+}
+
+/* 3. 精确选择黑框/卡片元素并改为白框 */
+.advantage-box,
+.feature-card,
+.step-card,
+.benefit-item,
+[class*="card"],
+[class*="box"] {
+  background-color: white !important;
+  color: #2d3748 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* 4. 确保白框内文字可见 */
+.advantage-box *,
+.feature-card *,
+.step-card *,
+.benefit-item * {
+  color: #2d3748 !important;
+}
+
+/* 5. 确保按钮等交互元素可见 */
+button, 
+[type="button"],
+[class*="btn"] {
+  background-color: #2563eb !important;
+  color: white !important;
+  border: none !important;
 }
