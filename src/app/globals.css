@@ -42,3 +42,17 @@ body {
 main, .container, .page-wrapper {
   background-color: #f0fff4 !important;
 }
+/* 将整个网站背景改为浅绿色 */
+body {
+  background-color: #f0fff4 !important;
+}
+
+/* 确保所有容器背景也是浅绿色 */
+main, .container, div, section, article, header, footer {
+  background-color: #f0fff4 !important;
+}
+
+/* 保持字体颜色不变，确保可读性 */
+* {
+  color: inherit !important;
+}
