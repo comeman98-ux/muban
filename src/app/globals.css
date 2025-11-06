@@ -56,3 +56,31 @@ main, .container, div, section, article, header, footer {
 * {
   color: inherit !important;
 }
+/* 1. 恢复K线图背景区域为初始状态 */
+.hero-section, .banner-section, .kline-background {
+  background: initial !important; /* 恢复初始背景 */
+  background-image: initial !important; /* 恢复背景图片 */
+}
+
+/* 2. 将黑框改为白框并确保文字可见 */
+.black-box, .dark-card, .advantage-box, .feature-card {
+  background-color: white !important; /* 白框 */
+  color: #333 !important; /* 深色文字确保可读 */
+  border: 1px solid #e0e0e0 !important; /* 添加浅色边框 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important; /* 添加阴影增强层次 */
+}
+
+/* 3. 确保白框内的文字可读 */
+.black-box *, .dark-card *, .advantage-box *, .feature-card * {
+  color: #333 !important; /* 深色文字 */
+}
+
+/* 4. 保留其他区域的淡绿色背景 */
+body {
+  background-color: #f0fff4 !important;
+}
+
+/* 5. 但排除K线图区域 */
+body:not(.kline-background):not(.hero-section) {
+  background-color: #f0fff4 !important;
+}
