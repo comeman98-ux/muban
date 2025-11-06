@@ -107,7 +107,7 @@ export default async function PortalLayout({
           <ScrollProgress />
           <UnifiedNavbar />
           <main className="pt-16">
-            <Theme accentColor="gray" scaling="90%" grayColor="slate" appearance="inherit" radius="none">
+            <Theme accentColor="blue" scaling="90%" grayColor="slate" appearance="inherit" radius="none">
               {children}
             </Theme>
           </main>
