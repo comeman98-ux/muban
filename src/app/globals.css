@@ -33,3 +33,12 @@
     animation: shake 3s ease-in-out infinite;
   }
 }
+/* 添加淡绿色背景 */
+body {
+  background-color: #f0fff4 !important;
+}
+
+/* 确保所有容器也有淡绿色背景 */
+main, .container, .page-wrapper {
+  background-color: #f0fff4 !important;
+}
