@@ -32,7 +32,7 @@
   .animate-shake {
     animation: shake 3s ease-in-out infinite;
   }
-
+}
 
 /* 1. 主体背景改为淡绿色，但不影响其他元素 */
 body {
