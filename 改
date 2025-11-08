@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 注意：在运行前请确保工作区干净 (git status == clean)
+# 建议先在本地或临时分支上运行，并人工审查变更。
+branch="replace/rename-to-富利者"
+commit_msg="Replace '汇','刃','fxkiller' -> '富利者'; '外汇交易' -> '交易人才计划'"
+
+echo "Creating branch: $branch"
+git checkout -b "$branch"
+
+# 1) 列出可能受影响的文件（文字预览）
+echo "Files containing target strings (dry-run):"
+git grep -In --heading --line-number -e '外汇交易' -e 'fxkiller' -e '刃' -e '汇' || true
+
+read -p "继续执行替换并提交吗？(y/N) " confirm
+if [[ "${confirm,,}" != "y" ]]; then
+  echo "Aborting."
+  exit 0
+fi
+
+# 2) 获取文本文件列表（忽略二进制文件）
+mapfile -t files < <(git grep -Il --no-index -e '外汇交易' -e 'fxkiller' -e '刃' -e '汇' -- $(git ls-files) || true)
+
+if [ ${#files[@]} -eq 0 ]; then
+  echo "没有找到匹配项，退出。"
+  exit 0
+fi
+
+echo "Found ${#files[@]} files. Applying replacements..."
+
+# Perform replacements in this order to avoid double replacement issues:
+# 1) 外汇交易 -> 交易人才计划 (exact phrase)
+# 2) fxkiller -> 富利者 (case-insensitive)
+# 3) 刃 -> 富利者
+# 4) 剩余的 单字 '汇' -> 富利者
+for f in "${files[@]}"; do
+  # Skip binary files just in case
+  if grep -Iq . "$f"; then
+    # Use perl with in-place backup
+    perl -0777 -pe '
+      s/外汇交易/交易人才计划/g;
+      s/\bfxkiller\b/富利者/ig;
+      s/刃/富利者/g;
+      s/汇/富利者/g;
+    ' -i.bak "$f" || {
+      echo "Failed to process $f"
+      exit 1
+    }
+    # Remove .bak if you don't want backups; keep for safety now
+  else
+    echo "Skipping binary file: $f"
+  fi
+done
+
+# Show a summary of changes (diffstat)
+echo "Change summary (git diff --stat):"
+git add -A
+git commit -m "$commit_msg"
+git --no-pager --no-color show --name-only --pretty="" HEAD
+echo "Done. Branch: $branch. Commit created."
+
+echo
+echo "提示/后续步骤："
+echo "1) 手工检查这些改动（特别是上下文敏感的词、文档、图片、SVG 或前端文本）。"
+echo "2) 若图片或图片文件名中包含这些词，需要手工更改并更新引用。"
+echo "3) 本脚本保留了每个修改文件的 .bak 备份文件。确认后可使用: find . -name \"*.bak\" -delete 删除备份。"
+echo "4) 本地测试通过后，推送分支： git push -u origin $branch ，然后在 GitHub 上开 PR。"
