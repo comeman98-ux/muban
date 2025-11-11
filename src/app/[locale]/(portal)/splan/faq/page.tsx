@@ -25,8 +25,8 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
     return {
       course: [
         {
-          question: '什么是 FX Killer 外汇交易员培训？',
-          answer: '我们是一个专注于筛选和培养顶尖外汇交易员的专业培训平台。我们致力于用最短的时间从大量人群中筛选出少数适合做交易的人才并进行培养。我们将在<strong> 30个工作日</strong>内判断新人是否是做交易的可塑之才。通过考核者将获得资金支持，成为独立交易员或基金经理。'
+          question: '什么是 富利者 交易员训练计划？',
+          answer: '我们是一个专注于筛选和培养顶尖交易员的专业培训平台。我们致力于用最短的时间从大量人群中筛选出少数适合做交易的人才并进行培养。我们将在<strong> 30个工作日</strong>内判断新人是否是做交易的可塑之才。通过考核者将获得资金支持，成为独立交易员或基金经理。'
         },
         {
           question: '为什么筛选如此严格？',
@@ -34,7 +34,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: '30个工作日会学习什么？',
-          answer: '<strong>第1-3天</strong>：完成规则练习，熟悉交易系统基本规则（15个标准进场点不出错）<br/><strong>第3-20天</strong>：盈利练习，找到适合自己的品种，要求连续10个工作日不错单、不漏单、不亏损<br/><strong>第20-40天</strong>：小额实盘训练（如通过盈利考核）<br/>软件到期前不能完成考核，将被劝退。'
+          answer: '<strong>第1-5天</strong>：完成进场点练习，熟悉交易系统基本规则和风控意识<br/><strong>第5-20天</strong>：按照盈利考核标准进行练习，逐渐形成自己的量化策略和交易计划<br/><strong>第20-40天</strong>：小额实盘训练（如通过盈利考核）<br/>软件到期前不能完成考核，将被劝退。'
         },
         {
           question: '为什么只有一次机会？',
@@ -52,7 +52,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: '需要什么样的基础条件？',
-          answer: '<ul><li>大专学历以上，35岁以下</li><li>认真、细心、耐心、心理健康</li><li>连续30个工作日可投入</li><li>Windows电脑，独立的交易环境</li><li>周一到周五，每天最低保证 13:30 - 21:30 在线</li><li>北京时间20:00参加团队长会议室复盘</li></ul>'
+          answer: '<ul><li>大专学历以上，35岁以下</li><li>认真、细心、耐心、心理健康，有韧性</li><li>连续30个工作日可投入</li><li>Windows电脑，独立的交易环境</li><li>周一到周五，每天最低保证 13:00 - 22:00 在线</li><li>北京时间22:30参加教练会议室复盘</li></ul>'
         },
         {
           question: '3天不能完成规则考核会怎样？',
@@ -64,7 +64,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: '学习过程中可以提问吗？',
-          answer: '可以。每天北京时间20:00有团队长会议室复盘，可以直接开麦与团队长沟通。其他时间可以通过微信与团队长联系。但请注意：<strong>学员之间不得加微信、电话等联系方式</strong>，这是纪律红线。'
+          answer: '可以。每天北京时间22:30有教练会议室复盘，可以直接在会议中与教练沟通。其他时间可以通过微信或其他通讯软件联系。但请注意：<strong>学员之间不得加微信、电话等联系方式</strong>，这是纪律红线。'
         }
       ],
       pricing: [
@@ -114,7 +114,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: '我可以一边工作一边参加培训吗？',
-          answer: '不可以。培训要求<strong>连续30个工作日</strong>，周一到周五每天最低保证 13:30 - 21:30 在线。这是全职投入的筛选和培养过程。如果无法保证时间投入，建议不要申请，因为这会浪费双方的时间。'
+          answer: '不可以。培训要求<strong>连续30个工作日</strong>，周一到周五每天最低保证 13:00 - 22:00 在线。这是全职投入的筛选和培养过程。如果无法保证时间投入，建议不要申请，因为这会浪费双方的时间。'
         },
         {
           question: '通过考核后还需要每天在线吗？',
@@ -127,7 +127,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
     return {
       course: [
         {
-          question: 'What is FX Killer Forex Trader Training?',
+          question: 'What is 富利者 Forex Trader Training?',
           answer: 'We are a professional training platform focused on selecting and cultivating elite forex traders. We are committed to identifying, in the shortest time possible, the few individuals from a large population who are suited for trading, and providing them with cultivation. Within <strong>30 working days</strong>, we will determine whether newcomers have the potential to become traders. Those who pass the assessment will receive capital support and become independent traders or fund managers.'
         },
         {
@@ -136,7 +136,7 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: 'What will I learn in 30 working days?',
-          answer: '<strong>Days 1-3</strong>: Complete rules practice, familiarize with basic trading system rules (15 standard entry points without errors)<br/><strong>Days 3-20</strong>: Profit practice, find suitable currency pairs, requirement: 10 consecutive working days with no missed entries, no missed exits, no losses<br/><strong>Days 20-40</strong>: Small-amount live training (if profit assessment passed)<br/>Failure to complete assessment before software expiration results in dismissal.'
+          answer: '<strong>Days 1-3</strong>: Complete rules practice, familiarize with basic trading system rules (15 standard entry points without errors)<br/><strong>Days 5-20</strong>: Profit practice, find suitable currency pairs, requirement: 10 consecutive working days with no missed entries, no missed exits, no losses<br/><strong>Days 20-40</strong>: Small-amount live training (if profit assessment passed)<br/>Failure to complete assessment before software expiration results in dismissal.'
         },
         {
           question: 'Why only one chance?',

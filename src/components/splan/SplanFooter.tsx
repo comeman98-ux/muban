@@ -80,7 +80,7 @@ export default function SplanFooter() {
 
               {/* Email */}
               <a
-                href="mailto:x.stark.dylan@gmail.com"
+                href="mailto:fulizhe@yeah.net"
                 className="text-gray-400 hover:text-white transition-colors"
                 title="Email"
               >

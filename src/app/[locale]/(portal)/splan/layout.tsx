@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FX Killer - 外汇交易员培训",
-  description: "FX Killer - 专业外汇交易员培训平台，提供系统化课程、实战训练和专业指导。",
+  title: "富利者 - 交易员训练计划",
+  description: "富利者 - 专业交易员训练计划平台，提供系统化课程、实战训练和专业指导。",
 };
 
 export default function SplanLayout({

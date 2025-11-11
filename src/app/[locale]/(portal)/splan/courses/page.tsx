@@ -67,7 +67,7 @@ export default function CoursesPage() {
             <div className="border-l-4 border-black dark:border-white bg-gray-50 dark:bg-gray-900 p-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="bg-black dark:bg-white text-white dark:text-black w-8 h-8 flex items-center justify-center font-bold border-2 border-black dark:border-white">1</span>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">规则练习（第1-3天）</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">规则练习（第1-5天）</h3>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-3">
                 完成规则练习，尽快熟悉交易系统的基本规则
@@ -85,7 +85,7 @@ export default function CoursesPage() {
             <div className="border-l-4 border-gray-600 dark:border-gray-400 bg-gray-50 dark:bg-gray-900 p-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="bg-gray-600 dark:bg-gray-400 text-white dark:text-black w-8 h-8 flex items-center justify-center font-bold border-2 border-gray-600 dark:border-gray-400">2</span>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">盈利练习（第3-20天）</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">盈利练习（第5-20天）</h3>
               </div>
               <p className="text-gray-700 dark:text-gray-300 mb-3">
                 开始盈利练习，务必不要想法太多，找到适合自己的品种
@@ -202,7 +202,7 @@ export default function CoursesPage() {
                 <span className="bg-black dark:bg-white text-white dark:text-black px-2 py-1 text-xs font-bold flex-shrink-0">时间</span>
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white">周一至周五</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">每天最低保证 13:30 - 21:30 在线（北京时间）</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">每天最低保证 13:00 - 22:00 在线（北京时间）</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">

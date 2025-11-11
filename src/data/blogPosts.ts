@@ -27,15 +27,15 @@ export const blogPosts: BlogPost[] = [
  id: '1',
  slug: 'about-fx-killer',
  title: {
-    zh: '关于富利者 (FX Killer) - 军事化外汇交易员训练营',
- en: 'About FX Killer - Military-Style Forex Trader Training Camp'
+    zh: '关于富利者 (富利者) - 军事化外汇交易员训练营',
+ en: 'About 富利者 - Military-Style Forex Trader Training Camp'
  },
  excerpt: {
-    zh: '富利者 (FX Killer) 是一个专注于筛选和培养外汇交易员的训练营。我们的理念：培养真正适合的人，留下极少数，劝返大多数。通过率10%-15%，30个工作日完整培训，盈利分成60%-90%。',
- en: 'FX Killer is a training camp focused on selecting and cultivating forex traders. Our philosophy: cultivating those truly suited, retaining the few, advising the majority. Pass rate 10%-15%, 30 working days complete training, 60%-90% profit share.'
+    zh: '富利者 (富利者) 是一个专注于筛选和培养外汇交易员的训练营。我们的理念：培养真正适合的人，留下极少数，劝返大多数。通过率10%-15%，30个工作日完整培训，盈利分成60%-90%。',
+ en: '富利者 is a training camp focused on selecting and cultivating forex traders. Our philosophy: cultivating those truly suited, retaining the few, advising the majority. Pass rate 10%-15%, 30 working days complete training, 60%-90% profit share.'
  },
  content: {
-    zh: `<h1 class="text-4xl font-bold text-center mb-8 text-black dark:text-white">关于富利者 (FX Killer)</h1>
+    zh: `<h1 class="text-4xl font-bold text-center mb-8 text-black dark:text-white">关于富利者 (富利者)</h1>
 
 <p class="text-base leading-relaxed mb-8 text-center text-gray-700 dark:text-gray-300">富利者是一个专注于筛选和培养顶尖外汇交易员的军事化训练营。我们不追求数量，只培养真正适合的人。这是一个严格、高强度、高淘汰率的专业训练项目。</p>
 
@@ -285,7 +285,7 @@ export const blogPosts: BlogPost[] = [
 </tr>
 <tr>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300"><strong class="font-bold text-black dark:text-white">性格特质</strong></td>
-<td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">认真、细心、耐心、心理健康</td>
+<td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">认真、细心、耐心、心理健康，有韧性</td>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">抗压能力强，情绪稳定</td>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">通过心理测评</td>
 </tr>
@@ -513,7 +513,7 @@ export const blogPosts: BlogPost[] = [
 <div class="flex-grow">
 <p class="text-xl font-bold mb-2 text-black dark:text-white">邮件联系团队长</p>
 <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">通过邮件提交你的申请资料，包括：个人简历、学历证明、心理测评结果、申请理由（200字以内）。</p>
-<p class="text-sm text-gray-500 dark:text-gray-500">邮箱：x.stark.dylan@gmail.com</p>
+<p class="text-sm text-gray-500 dark:text-gray-500">邮箱：fulizhe@yeah.net</p>
 </div>
 </div>
 </div>
@@ -552,9 +552,9 @@ export const blogPosts: BlogPost[] = [
 <li class="text-white dark:text-black leading-relaxed flex items-start gap-2"><span class="font-bold">•</span><span>如有虚假信息，一经发现立即淘汰</span></li>
 </ul>
 </div>`,
- en: `<h1 class="text-4xl font-bold text-center mb-8 text-black dark:text-white">About FX Killer (FX Killer)</h1>
+ en: `<h1 class="text-4xl font-bold text-center mb-8 text-black dark:text-white">About 富利者 (富利者)</h1>
 
-<p class="text-base leading-relaxed mb-8 text-center text-gray-700 dark:text-gray-300">FX Killer is a military-style training camp focused on selecting and cultivating top forex traders. We don't pursue quantity, only cultivating those truly suited. This is a strict, high-intensity, high-elimination professional training program.</p>
+<p class="text-base leading-relaxed mb-8 text-center text-gray-700 dark:text-gray-300">富利者 is a military-style training camp focused on selecting and cultivating top forex traders. We don't pursue quantity, only cultivating those truly suited. This is a strict, high-intensity, high-elimination professional training program.</p>
 
 <div class="bg-black dark:bg-white text-white dark:text-black p-8 mb-8 border-2 border-black dark:border-white">
 <p class="text-3xl font-bold mb-4 text-white dark:text-black text-center">Cultivating those truly suited, retaining the few, advising the majority</p>
@@ -584,7 +584,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2 class="text-3xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">Our Training Philosophy</h2>
 
-<p class="text-base leading-relaxed mb-6 text-gray-700 dark:text-gray-300">FX Killer adopts a military-style management model because we know: trading is a psychological war requiring extreme discipline, execution, and mental strength. Our training isn't about teaching you how to get rich quick, but cultivating you to become a professional, sustainable trader.</p>
+<p class="text-base leading-relaxed mb-6 text-gray-700 dark:text-gray-300">富利者 adopts a military-style management model because we know: trading is a psychological war requiring extreme discipline, execution, and mental strength. Our training isn't about teaching you how to get rich quick, but cultivating you to become a professional, sustainable trader.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <div class="bg-white dark:bg-gray-800 p-6 border-2 border-gray-200 dark:border-gray-700">
@@ -868,7 +868,7 @@ export const blogPosts: BlogPost[] = [
 <tr>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300"><strong class="font-bold text-black dark:text-white">Advanced Level</strong></td>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">$20,000+</td>
-<td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">$500+/lot</td>
+<td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">$1200+/lot</td>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">80%-90%+</td>
 <td class="px-6 py-3 border-b border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300">Flexible</td>
 </tr>
@@ -943,7 +943,7 @@ export const blogPosts: BlogPost[] = [
 <div class="flex-grow">
 <p class="text-xl font-bold mb-2 text-black dark:text-white">Email Team Leader</p>
 <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">Submit your application materials via email, including: resume, education certificates, psychological assessment results, application reason (within 200 words).</p>
-<p class="text-sm text-gray-500 dark:text-gray-500">Email: x.stark.dylan@gmail.com</p>
+<p class="text-sm text-gray-500 dark:text-gray-500">Email: fulizhe@yeah.net</p>
 </div>
 </div>
 </div>
@@ -1014,7 +1014,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2 class="text-3xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">Final Thoughts</h2>
 
-<p class="text-base leading-relaxed mb-6 text-gray-700 dark:text-gray-300">FX Killer is not just a training institution, but more like a highly disciplined military camp. We won't promise you quick riches or easy success. What we can provide is:</p>
+<p class="text-base leading-relaxed mb-6 text-gray-700 dark:text-gray-300">富利者 is not just a training institution, but more like a highly disciplined military camp. We won't promise you quick riches or easy success. What we can provide is:</p>
 
 <ul class="space-y-3 mb-8">
 <li class="text-gray-700 dark:text-gray-300 leading-relaxed flex items-start gap-2"><span class="text-black dark:text-white font-bold">•</span><span>A complete and battle-tested trading system</span></li>
@@ -1028,7 +1028,7 @@ export const blogPosts: BlogPost[] = [
 
 <div class="bg-black dark:bg-white text-white dark:text-black p-8 mb-8 border-2 border-black dark:border-white">
 <p class="text-3xl font-bold mb-4 text-white dark:text-black text-center">Are you ready to accept the challenge?</p>
-<p class="text-lg text-center text-white dark:text-black">Email us: x.stark.dylan@gmail.com</p>
+<p class="text-lg text-center text-white dark:text-black">Email us: fulizhe@yeah.net</p>
 </div>
 
 <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300"><strong class="font-bold text-black dark:text-white">Risk Warning:</strong> Forex trading carries risk, investment requires caution. Site content for learning reference only, not investment advice.</p>
@@ -1037,7 +1037,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'about',
  tags: ['introduction', 'platform', 'training'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-15',
  readTime: 20,
  featured: true
@@ -1745,7 +1745,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'forex',
  tags: ['beginner', 'forex', 'guide', 'education'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-16',
  readTime: 25,
  featured: true
@@ -2408,7 +2408,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'forex',
  tags: ['risk-management', 'forex', 'advanced'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-17',
  readTime: 20,
  featured: true
@@ -2777,7 +2777,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'gold',
  tags: ['gold', 'timing', 'strategy'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-18',
  readTime: 22,
  featured: false
@@ -3028,7 +3028,7 @@ export const blogPosts: BlogPost[] = [
 </div>
 
 <div class="bg-black dark:bg-white text-white dark:text-black p-8 mb-8 border-2 border-black dark:border-white">
-<p class="text-2xl font-bold mb-4 text-white dark:text-black text-center">FX Killer Recommendation: Swing Trading Strategy</p>
+<p class="text-2xl font-bold mb-4 text-white dark:text-black text-center">富利者 Recommendation: Swing Trading Strategy</p>
 <p class="text-lg leading-relaxed text-center text-white dark:text-black">Controlled risk, flexible timing, clear profit targets—best suited for most traders.</p>
 </div>
 
@@ -3087,7 +3087,7 @@ export const blogPosts: BlogPost[] = [
 <div class="space-y-6 mb-8">
 <div class="bg-white dark:bg-gray-800 p-6 border-2 border-gray-200 dark:border-gray-700">
 <p class="text-xl font-bold mb-4 text-black dark:text-white">Case Study: From $5,000 to $50,000 in 12 Months</p>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Real trading record from an FX Killer student (anonymized)</p>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Real trading record from an 富利者 student (anonymized)</p>
 <div class="overflow-x-auto">
 <table class="w-full border-2 border-gray-300 dark:border-gray-700">
 <thead>
@@ -3135,7 +3135,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'gold',
  tags: ['gold', 'profit', 'strategy', 'advanced'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-19',
  readTime: 24,
  featured: false
@@ -4076,7 +4076,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'crypto',
  tags: ['cryptocurrency', 'beginner', 'blockchain'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-20',
  readTime: 25,
  featured: false
@@ -4269,7 +4269,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'crypto',
  tags: ['cryptocurrency', 'psychology', 'emotions'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-21',
  readTime: 22,
  featured: false
@@ -4766,7 +4766,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'psychology',
  tags: ['psychology', 'professional', 'development'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-22',
  readTime: 11,
  featured: false
@@ -5348,7 +5348,7 @@ export const blogPosts: BlogPost[] = [
  },
  category: 'professional',
  tags: ['professional', 'routine', 'workflow', 'daily'],
- author: 'FX Killer Team',
+ author: '富利者 Team',
  date: '2025-01-28',
  readTime: 11,
  featured: true
