@@ -43,7 +43,7 @@ export default function SplanFooter() {
 
               {/* X (Twitter) */}
               <a
-                href="https://x.com/HeWei86028?t=vpm6aDWnVw47MQ1Nzkuosg&s=09"
+                href="https://x.com/Fulizhe?t=vpm6aDWnVw47MQ1Nzkuosg&s=09"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -107,7 +107,7 @@ export default function SplanFooter() {
               </li>
               <li>
                 <LocaleLink href="/education" className="text-gray-400 hover:text-white transition-colors">
-                  {language === 'zh' ? '教育中心' : 'Education'}
+                  {t('education.center')}
                 </LocaleLink>
               </li>
               <li>
@@ -140,30 +140,30 @@ export default function SplanFooter() {
 
           {/* Tools & Resources */}
           <div>
-            <h4 className="font-bold mb-4">{language === 'zh' ? '交易工具' : 'Trading Tools'}</h4>
+            <h4 className="font-bold mb-4">{t('tools.trading')}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <LocaleLink href="/tools/position-calculator" className="text-gray-400 hover:text-white transition-colors">
-                  {language === 'zh' ? '仓位计算器' : 'Position Calculator'}
+                  {t('tools.position')}
                 </LocaleLink>
               </li>
               <li>
                 <LocaleLink href="/tools/risk-reward-calculator" className="text-gray-400 hover:text-white transition-colors">
-                  {language === 'zh' ? '风险回报计算器' : 'Risk/Reward Calculator'}
+                  {t('tools.riskReward')}
                 </LocaleLink>
               </li>
               <li>
                 <LocaleLink href="/tools/pip-calculator" className="text-gray-400 hover:text-white transition-colors">
-                  {language === 'zh' ? '点值计算器' : 'Pip Calculator'}
+                  {t('tools.pip')}
                 </LocaleLink>
               </li>
             </ul>
 
-            <h4 className="font-bold mb-4 mt-6">{language === 'zh' ? '其他资源' : 'Resources'}</h4>
+            <h4 className="font-bold mb-4 mt-6">{t('resources.other')}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <LocaleLink href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  {language === 'zh' ? '隐私政策' : 'Privacy Policy'}
+                  {t('privacy.policy')}
                 </LocaleLink>
               </li>
               <li>
@@ -278,7 +278,7 @@ export default function SplanFooter() {
           >
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-black dark:text-white">
-                {language === 'zh' ? '微信联系方式' : 'WeChat Contact'}
+                {t('wechat.contact')}
               </h3>
               <button
                 onClick={() => setShowWechatModal(false)}
@@ -293,24 +293,24 @@ export default function SplanFooter() {
             <div className="text-center">
               <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-500 p-6 mb-4">
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                  {language === 'zh' ? '微信号' : 'WeChat ID'}
+                  {t('wechat.id')}
                 </p>
                 <p className="text-3xl font-bold text-black dark:text-white mb-4">
                   fulizhe90
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-500">
-                  {language === 'zh' ? '复制微信号，在微信中添加好友' : 'Copy WeChat ID and add as friend in WeChat'}
+                  {t('wechat.copyTip')}
                 </p>
               </div>
 
               <button
                 onClick={() => {
                   navigator.clipboard.writeText('fulizhe90');
-                  alert(language === 'zh' ? '微信号已复制！' : 'WeChat ID copied!');
+                  alert(t('wechat.copied'));
                 }}
                 className="w-full px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
-                {language === 'zh' ? '复制微信号' : 'Copy WeChat ID'}
+                {t('wechat.copyButton')}
               </button>
             </div>
           </div>

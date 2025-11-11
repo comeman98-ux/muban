@@ -52,7 +52,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Comparison
     'comparison.vs': 'VS 传统培训机构',
-    'comparison.fxkiller': '富利者',
+    'comparison.': '富利者',
     'comparison.traditional': '传统培训机构',
     'comparison.free': '完全免费 - 无任何培训费用，真正的0门槛学习',
     'comparison.practical': '实战培养 - 30-45天系统化职业训练',
@@ -496,11 +496,25 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.cta.title': '准备开始您的交易之旅？',
     'blog.cta.subtitle': '加入富利者，接受专业的交易员培训',
     'blog.cta.button': '立即加入',
+    
+    // 新增SplanFooter相关翻译
+    'education.center': '教育中心',
+    'tools.trading': '交易工具',
+    'tools.position': '仓位计算器',
+    'tools.riskReward': '风险回报计算器',
+    'tools.pip': '点值计算器',
+    'resources.other': '其他资源',
+    'privacy.policy': '隐私政策',
+    'wechat.contact': '微信联系方式',
+    'wechat.id': '微信号',
+    'wechat.copyTip': '复制微信号，在微信中添加好友',
+    'wechat.copyButton': '复制微信号',
+    'wechat.copied': '微信号已复制！'
   },
   en: {
     // Brand Name
-    'brand.name': '富利者',
-    'brand.full': '富利者',
+    'brand.name': 'Fulizhe',
+    'brand.full': 'Fulizhe',
 
     // Navigation
     'nav.home': 'Home',
@@ -533,7 +547,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Comparison
     'comparison.vs': 'VS Traditional Forex Training',
-    'comparison.fxkiller': '富利者',
+    'comparison.Fulizhe': '富利者',
     'comparison.traditional': 'Traditional Training Institutions',
     'comparison.free': 'Completely Free - No Training Fees',
     'comparison.practical': 'Practical Training - 30 Days of Systematic Professional Training',
@@ -975,6 +989,20 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.cta.title': 'Ready to Start Your Trading Journey?',
     'blog.cta.subtitle': 'Join 富利者 for professional trader training',
     'blog.cta.button': 'Join Now',
+    
+    // 新增SplanFooter相关翻译
+    'education.center': 'Education',
+    'tools.trading': 'Trading Tools',
+    'tools.position': 'Position Calculator',
+    'tools.riskReward': 'Risk/Reward Calculator',
+    'tools.pip': 'Pip Calculator',
+    'resources.other': 'Resources',
+    'privacy.policy': 'Privacy Policy',
+    'wechat.contact': 'WeChat Contact',
+    'wechat.id': 'WeChat ID',
+    'wechat.copyTip': 'Copy WeChat ID and add as friend in WeChat',
+    'wechat.copyButton': 'Copy WeChat ID',
+    'wechat.copied': 'WeChat ID copied!'
   }
 };
 

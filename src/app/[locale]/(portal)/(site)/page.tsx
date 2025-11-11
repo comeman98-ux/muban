@@ -181,7 +181,7 @@ const DummyContent = () => {
             {/* 富利者 */}
             <div className="bg-white dark:bg-gray-800 p-6 border-l-4 border-black dark:border-white">
               <h4 className="text-xl font-bold mb-4 text-black dark:text-white flex items-center gap-2">
-                <span className="text-2xl"></span> {t('富利者')}
+                <span className="text-2xl"></span> {t('comparison.Fulizhe')}
               </h4>
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
