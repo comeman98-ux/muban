@@ -12,13 +12,13 @@ export default function InterviewCTA() {
 
   const content = {
     zh: {
-      badge: "开始您的交易员之路",
+      badge: "开始你的交易员之路",
       title: "准备好改变人生了吗？",
-      subtitle: "立即预约面试，开启您的职业交易员生涯",
-      description: "我们正在寻找有潜力的交易员候选人。完全免费的30天培训，通过考核即可获得资金支持。",
-      button: "立即预约面试",
+      subtitle: "立即预约，开启你的职业交易员生涯",
+ 
+      button: "立即预约加入",
       features: [
-        { icon: "✓", text: "完全免费培训" },
+        { icon: "✓", text: "低成本培训" },
         { icon: "✓", text: "30天系统学习" },
         { icon: "✓", text: "通过即获资金" },
         { icon: "✓", text: "60-90%高分成" }
@@ -45,7 +45,7 @@ export default function InterviewCTA() {
 
   return (
     <>
-      <section className="relative py-24 overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black dark:from-white dark:via-gray-100 dark:to-white">
+      <section className="relative py-24 overflow-hidden bg-black dark:bg-black">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -79,7 +79,7 @@ export default function InterviewCTA() {
             transition={{ duration: 0.6 }}
             className="text-center mb-6"
           >
-            <span className="inline-block px-6 py-2 bg-white dark:bg-black text-black dark:text-white text-sm font-bold tracking-wider border-2 border-white dark:border-black">
+            <span className="inline-block px-6 py-2 bg-black dark:bg-black text-white dark:text-white text-sm font-bold tracking-wider border-2 border-black dark:border-black">
               {currentContent.badge.toUpperCase()}
             </span>
           </motion.div>

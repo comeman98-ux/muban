@@ -23,32 +23,37 @@ const translations: Record<Language, Record<string, string>> = {
 
     // 导航栏
     'nav.home': '首页',
-    'nav.training': '培训',
+    'nav.training': '训练计划',
     'nav.tradingTools': '工具',
     'nav.blog': '博客',
     'nav.psychology': '测评',
     'nav.dashboard': '量化',
     'nav.faq': 'FAQ',
     'nav.membership': '捐赠',
-    'nav.join': '立即报名',
+    'nav.join': '立即加入训练计划',
 
     // Hero Section
-    'hero.title': 'Professional FX Trader Training Platform',
-    'hero.subtitle': '30天标准化培养顶尖职业交易员',
-    'hero.cta.learn': '了解训练计划',
-    'hero.cta.dashboard': '进入交易系统',
+    'hero.title': '富利者科学训练计划',
+    'hero.subtitle': '用严谨的科学训练体系，打造可复制，可量化的稳定交易系统',
+    'hero.cta.learn': '进入训练计划',
+    'hero.cta.dashboard': '查看训练体系',
+    'hero.note': '适合希望摆脱情绪交易、建立长期稳定盈利能力的交易者与准职业交易员',
+
 
     // Why Choose Section
-    'why.title': '为什么选择富利者',
-    'why.subtitle': '专注筛选和培养顶尖交易员，培养真正适合的人，留下极少数，劝返大多数',
+      // Founder Intro / 发起人自述
+    'founder.title': '我是谁 · 发起人自述',
+    'founder.p1': '我叫富利者',
+    'founder.p2':
+      '我不是“老师”，也不是“喊单员”，我更像是一个训练总教练，我的信念很简单：让交易可以像运动训练一样，被拆解、被反复练习、被量化评估。',
+    'founder.p3.title': '我见过太多交易者：',
+    'founder.p3.line1': '有行情就满仓上，没计划只靠感觉',
+    'founder.p3.line2': '重仓一把后心态崩溃，长期看不到任何统计意义上的优势',
+    'founder.p3.line3': '账面盈亏像过山车，复盘只停留在“下次不能这样”',
+    'founder.p4.title': '所以，我做了这件事：',
+    'founder.p4.line1': '把交易当做一项“科学训练工程”，而不是一场情绪赌博。',
+    'founder.p4.line2': '富利者训练计划，就是这个工程的载体',
 
-    // Advantages
-    'advantage.selection.title': '精准筛选',
-    'advantage.selection.desc': '30个工作日内判断是否适合外汇交易，避免浪费时间。不适合我们会如实告知，适合则全力培养。',
-    'advantage.growth.title': '快速成长',
-    'advantage.growth.desc': '科学避开错误定式，让合适的人在30-45个工作日内达到专家10-20年的交易水平',
-    'advantage.commission.title': '高额分成',
-    'advantage.commission.desc': '战利品至少60%属于你，随能力提升最高可达90%以上。荣辱与共，合作共赢。',
 
     // Comparison
     'comparison.vs': 'VS 传统培训机构',

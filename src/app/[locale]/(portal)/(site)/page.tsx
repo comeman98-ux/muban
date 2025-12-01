@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { Code, Flex, Text } from "@radix-ui/themes";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { SparklesCore } from "@/components/ui/sparkles";
@@ -15,6 +15,7 @@ import CandlestickChart from '@/components/custom/CandlestickChart';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ShineButton from '@/components/custom/ShineButton';
+import EntrySelector from '@/components/custom/EntrySelector';
 
 const DummyContent = () => {
   const router = useRouter();
@@ -54,7 +55,7 @@ const DummyContent = () => {
   }, [profitImages.length]);
 
   return (
-    <div className="w-full -mt-20">
+    <div className="w-full -mt-20 bg-black dark:bg-black text-white dark:text-white">
       {/* Hero Section - Full Width K-line Background */}
       <div className="relative bg-white dark:bg-black overflow-hidden h-screen">
         {/* K-line Chart Background */}
@@ -113,463 +114,524 @@ const DummyContent = () => {
                 </button>
               </div>
             </FadeInSlide>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 为什么选择 富利者 - 增强版 */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">
-          {t('why.title')}
-        </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
-          {t('why.subtitle')}
-        </p>
-
-        {/* 核心优势 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <FadeInSlide direction="up" delay={0.1}>
-            <HoverCard className="h-full">
-              <div className="p-8 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 h-full hover:border-black dark:hover:border-white transition-colors">
-                <div className="mb-4 w-12 h-12 bg-black dark:bg-white flex items-center justify-center">
-                  <span className="text-2xl text-white dark:text-black font-bold">1</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t('advantage.selection.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {t('advantage.selection.desc')}
-                </p>
-              </div>
-            </HoverCard>
-          </FadeInSlide>
-
-          <FadeInSlide direction="up" delay={0.2}>
-            <HoverCard className="h-full">
-              <div className="p-8 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 h-full hover:border-black dark:hover:border-white transition-colors">
-                <div className="mb-4 w-12 h-12 bg-black dark:bg-white flex items-center justify-center">
-                  <span className="text-2xl text-white dark:text-black font-bold">2</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t('advantage.growth.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {t('advantage.growth.desc')}
-                </p>
-              </div>
-            </HoverCard>
-          </FadeInSlide>
-
-          <FadeInSlide direction="up" delay={0.3}>
-            <HoverCard className="h-full">
-              <div className="p-8 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 h-full hover:border-black dark:hover:border-white transition-colors">
-                <div className="mb-4 w-12 h-12 bg-black dark:bg-white flex items-center justify-center">
-                  <span className="text-2xl text-white dark:text-black font-bold">3</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{t('advantage.commission.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {t('advantage.commission.desc')}
-                </p>
-              </div>
-            </HoverCard>
-          </FadeInSlide>
-        </div>
-
-        {/* 与传统培训对比 */}
-        <div className="bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 p-8">
-          <h3 className="text-2xl font-bold text-center mb-8 text-black dark:text-white">
-            <span className="bg-black dark:bg-white text-white dark:text-black px-4 py-2">{t('comparison.vs')}</span>
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* 富利者 */}
-            <div className="bg-white dark:bg-gray-800 p-6 border-l-4 border-black dark:border-white">
-              <h4 className="text-xl font-bold mb-4 text-black dark:text-white flex items-center gap-2">
-                <span className="text-2xl"></span> {t('comparison.Fulizhe')}
-              </h4>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.free')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.practical')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.selection')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.funding')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.share')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.career')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-black dark:text-white font-bold">•</span>
-                  <span>{t('comparison.discipline')}</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* 传统培训 */}
-            <div className="bg-gray-100 dark:bg-gray-700 p-6 border-l-4 border-gray-400">
-              <h4 className="text-xl font-bold mb-4 text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                <span className="text-2xl"></span> {t('comparison.traditional')}
-              </h4>
-              <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.highfee')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.theory')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.acceptall')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.selffunded')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.nosupport')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.noplan')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold">•</span>
-                  <span>{t('comparison.loose')}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 bg-black dark:bg-gray-950 text-white p-6 text-center">
-            <p className="text-lg font-semibold">
-              {t('comparison.emphasis')}
+            {/* Hero Note */}
+            <p className="text-sm text-gray-600 dark:text-gray-400 max-w-3xl">
+              {t('hero.note')}
             </p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 职业发展路径 - 全新设计 */}
-      <div className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-black py-20 border-y-2 border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">
-            {t('career.title')}
-          </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-16 text-lg">
-            {t('career.subtitle')}
-          </p>
-
-          {/* 发展阶梯 */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            {/* 阶段 1 */}
-            <div className="relative">
-              <div className="bg-white dark:bg-gray-800 border-2 border-black dark:border-white p-6 h-full">
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-black dark:bg-white border-2 border-black dark:border-white flex items-center justify-center">
-                  <span className="text-white dark:text-black font-black text-2xl">1</span>
-                </div>
-                <div className="mt-4">
-                  <div className="inline-block px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-bold mb-3">
-                    {t('career.stage1.days')}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{t('career.stage1.title')}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    {t('career.stage1.desc')}
-                  </p>
-                  <div className="bg-gray-100 dark:bg-gray-700 p-3 border-l-2 border-gray-400">
-                    <p className="text-xs text-gray-700 dark:text-gray-300">
-                      {t('career.stage1.warning')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 阶段 2 */}
-            <div className="relative">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-700 dark:border-gray-400 p-6 h-full">
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gray-700 dark:bg-gray-400 border-2 border-gray-700 dark:border-gray-400 flex items-center justify-center">
-                  <span className="text-white dark:text-black font-black text-2xl">2</span>
-                </div>
-                <div className="mt-4">
-                  <div className="inline-block px-3 py-1 bg-gray-700 dark:bg-gray-400 text-white dark:text-black text-xs font-bold mb-3">
-                    {t('career.stage2.days')}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{t('career.stage2.title')}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    {t('career.stage2.desc')}
-                  </p>
-                  <div className="bg-gray-100 dark:bg-gray-700 p-3 border-l-2 border-gray-600">
-                    <p className="text-xs text-gray-700 dark:text-gray-300">
-                      {t('career.stage2.tip')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 阶段 3 */}
-            <div className="relative">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-800 dark:border-gray-300 p-6 h-full">
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gray-800 dark:bg-gray-300 border-2 border-gray-800 dark:border-gray-300 flex items-center justify-center">
-                  <span className="text-white dark:text-black font-black text-2xl">3</span>
-                </div>
-                <div className="mt-4">
-                  <div className="inline-block px-3 py-1 bg-gray-800 dark:bg-gray-300 text-white dark:text-black text-xs font-bold mb-3">
-                    {t('career.stage3.days')}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{t('career.stage3.title')}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                    {t('career.stage3.desc')}
-                  </p>
-                  <div className="bg-gray-100 dark:bg-gray-700 p-3 border-l-2 border-gray-700">
-                    <p className="text-xs text-gray-700 dark:text-gray-300">
-                      {t('career.stage3.success')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* 阶段 4 */}
-            <div className="relative">
-              <div className="bg-black dark:bg-white border-2 border-black dark:border-white p-6 h-full">
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-black dark:bg-white border-2 border-black dark:border-white flex items-center justify-center">
-                  <span className="text-white dark:text-black font-black text-2xl">★</span>
-                </div>
-                <div className="mt-4">
-                  <div className="inline-block px-3 py-1 bg-white dark:bg-black text-black dark:text-white text-xs font-bold mb-3">
-                    {t('career.stage4.path')}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-white dark:text-black">{t('career.stage4.title')}</h3>
-                  <p className="text-sm text-gray-300 dark:text-gray-700 mb-4">
-                    {t('career.stage4.desc')}
-                  </p>
-                  <div className="bg-gray-800 dark:bg-gray-200 p-3 border-l-2 border-white dark:border-black">
-                    <p className="text-xs text-white dark:text-black font-semibold">
-                      {t('career.stage4.goal')}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* 你是否符合基本条件 - 全新设计 */}
+           {/* 我是谁 · 发起人自述 + 排名 */}
       <div className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">
-          {t('req.title')}
-        </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
-          {t('req.subtitle')}
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* 左侧：自我介绍 */}
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-8 md:p-10 lg:p-12">
+            <p className="text-sm font-semibold text-yellow-400 mb-4">
+              我是谁 · 发起人自述
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-8">
+              我叫 <span className="text-yellow-400">富利者</span>
+              <br />
+              二级市场最科学的 <span className="text-yellow-400">训练总教练</span>
+            </h2>
 
-        {/* 条件卡片 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* 人群画像 */}
-          <div className="bg-black dark:bg-white p-8 border-2 border-black dark:border-white">
-            <div className="text-white dark:text-black">
-              <div className="text-5xl mb-4"></div>
-              <h3 className="text-2xl font-bold mb-6">{t('req.profile.title')}</h3>
-              <div className="space-y-4">
-                <div className="border-l-4 border-white dark:border-black pl-4">
-                  <p className="font-bold text-lg">{t('req.profile.education')}</p>
-                  <p className="text-sm text-gray-300 dark:text-gray-700">{t('req.profile.education.desc')}</p>
-                </div>
-                <div className="border-l-4 border-white dark:border-black pl-4">
-                  <p className="font-bold text-lg">{t('req.profile.psychology')}</p>
-                  <p className="text-sm text-gray-300 dark:text-gray-700">{t('req.profile.psychology.desc')}</p>
-                </div>
-                <div className="border-l-4 border-white dark:border-black pl-4">
-                  <p className="font-bold text-lg">{t('req.profile.character')}</p>
-                  <p className="text-sm text-gray-300 dark:text-gray-700">{t('req.profile.character.desc')}</p>
-                </div>
-              </div>
+            <div className="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed border-l border-gray-600 pl-4">
+              <p>我不是老师，也不是喊单员</p>
+              <p>
+                我只做一件事：让交易可以像运动训练一样，被拆解、被反复练习、被量化评估
+                
+              </p>
+      
+            
+              <p>
+                如果你想通过交易过上自由的生活，并且愿意服从训练纪律、敢于面对自己，欢迎加入富利者训练营。
+              </p>
             </div>
           </div>
 
-          {/* 时间与环境 */}
-          <div className="bg-white dark:bg-black p-8 border-2 border-black dark:border-white">
-            <div className="text-5xl mb-4"></div>
-            <h3 className="text-2xl font-bold mb-6 text-black dark:text-white">{t('req.time.title')}</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-black dark:bg-white flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 dark:text-white">{t('req.time.commitment')}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{t('req.time.commitment.desc')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-black dark:bg-white flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 dark:text-white">{t('req.time.equipment')}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{t('req.time.equipment.desc')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-black dark:bg-white flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900 dark:text-white">{t('req.time.environment')}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{t('req.time.environment.desc')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 在线时间 */}
-          <div className="bg-black dark:bg-white p-8 border-2 border-black dark:border-white">
-            <div className="text-white dark:text-black">
-              <div className="text-5xl mb-4"></div>
-              <h3 className="text-2xl font-bold mb-6">{t('req.online.title')}</h3>
-              <div className="space-y-4">
-                <div className="border-l-4 border-white dark:border-black pl-4">
-                  <p className="font-bold text-lg">{t('req.online.hours')}</p>
-                  <p className="text-sm text-gray-300 dark:text-gray-700">{t('req.online.hours.desc')}</p>
-                </div>
-                <div className="border-l-4 border-white dark:border-black pl-4">
-                  <p className="font-bold text-lg">{t('req.online.debrief')}</p>
-                  <p className="text-sm text-gray-300 dark:text-gray-700">{t('req.online.debrief.desc')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 适合与否 */}
-          <div className="bg-white dark:bg-black p-8 border-2 border-black dark:border-white">
-            <div className="text-black dark:text-white">
-              <div className="text-5xl mb-4"></div>
-              <h3 className="text-2xl font-bold mb-6">{t('unsuitable.title')}</h3>
-              <div className="space-y-4">
-                <div className="border-l-4 border-black dark:border-white pl-4">
-                  <p className="font-bold text-lg flex items-center gap-2">
-                    <span className="text-red-600 dark:text-red-500">✗</span>
-                    {t('unsuitable.gambler')}
-                  </p>
-                  <p className="text-sm text-gray-700 dark:text-gray-400">{t('unsuitable.gambler.desc')}</p>
-                </div>
-                <div className="border-l-4 border-black dark:border-white pl-4">
-                  <p className="font-bold text-lg flex items-center gap-2">
-                    <span className="text-green-600 dark:text-green-500">✓</span>
-                    {t('expectations.mindset')}
-                  </p>
-                  <p className="text-sm text-gray-700 dark:text-gray-400">{t('expectations.mindset.desc')}</p>
-                </div>
-              </div>
+          {/* 右侧：我的职业故事 */}
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-8 md:p-10 lg:p-12">
+            <p className="text-sm font-semibold text-yellow-400 mb-4">
+              我的职业故事
+            </p>
+            <div className="space-y-3 text-base md:text-lg text-gray-300 leading-relaxed">
+              <p>
+                2020年我离开华尔街量化基金，带着50万刀和量化思维回国；
+                
+              </p>
+              <p>
+                用了三年时间打造出了现在的训练体系和量化策略
+          
+              </p>
+              
+             
+              <p>
+                 因为见过太多交易员有行情就满仓上，没计划只靠感觉；账面盈亏像过山车，复盘只停留在“下次不能这样”
+              </p>
+              <p>所以，我做了这件事：
+                把交易当做一项“科学训练工程”，而不是一场情绪赌博</p>
+                 <p>我希望通过科学，系统性的训练模式，让每一位学员能快速上战场，先赚钱，后学习！</p>
+                  <p>过去的两年里，每年送 1,000 名毕业生上岗位，劝退 100,000 名赌徒</p>
+                  <p>这是我的科学训练体系，也可能是你在二级市场翻身的机会
+                </p>
             </div>
           </div>
         </div>
 
-        {/* 重要提示 */}
-        <div className="bg-black dark:bg-white text-white dark:text-black p-8 border-2 border-black dark:border-white">
-          <div className="flex items-start gap-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-white dark:bg-black flex items-center justify-center">
-              <svg className="w-8 h-8 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
+        {/* 底部排名数据 */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-6 text-center">
+            <p className="text-sm text-gray-400 mb-2">资产管理规模</p>
+            <p className="text-3xl md:text-4xl font-black">150M+</p>
+          </div>
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-6 text-center">
+            <p className="text-sm text-gray-400 mb-2">已参与训练训练人数</p>
+            <p className="text-3xl md:text-4xl font-black">13000+</p>
+          </div>
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-6 text-center">
+            <p className="text-sm text-gray-400 mb-2">长期在训学员</p>
+            <p className="text-3xl md:text-4xl font-black">500+</p>
+          </div>
+          <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-6 text-center">
+            <p className="text-sm text-gray-400 mb-2">职业交易员</p>
+            <p className="text-3xl md:text-4xl font-black">100+</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 职业发展路径 - 改为武器/军令双卡片 */}
+      <div className="bg-black dark:bg-black py-20 border-y-2 border-gray-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* 左侧：三大独家法门 */}
+            <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-8 md:p-10 lg:p-12">
+              <p className="text-sm font-semibold text-yellow-400 mb-4">
+                三大独家法门
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-8">
+                一套方法不够 · 我们给你三大训练引擎
+              </h2>
+
+              <div className="space-y-6">
+                {/* 武器 1 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">1</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text-white">华尔街未公开技术</p>
+                    <p className="text-sm text-gray-300">
+                      独家技术理论+量化交指标系统+流程化训练引擎，从”认知—方法—执行—复盘“拆解整个交易闭环，最终形成标准化
+                    </p>
+                  </div>
+                </div>
+
+                {/* 武器 2 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">2</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text-white">全球卫星系统</p>
+                    <p className="text-sm text-gray-300">
+                      AI 实时监控全球品种走势，推送专属策略信号，通过量化帮助真正形成人机结合的交易系统，让服从纪律大于主观判断
+                    </p>
+                  </div>
+                </div>
+
+                {/* 武器 3 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">3</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text-white">团队矩阵作战</p>
+                    <p className="text-sm text-gray-300">
+                      所有交易员纳入矩阵实行并肩作战，一人回撤由全队纠偏，实现风险对冲，稳定放大盈利结果
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex-1">
-              <h4 className="text-2xl font-bold mb-3">{t('req.notice.title')}</h4>
-              <p className="text-lg leading-relaxed mb-4">
-                {t('req.notice.once')}{t('req.notice.desc')}
+
+            {/* 右侧：三句军令 */}
+            <div className="bg-black dark:bg-black text-white border border-gray-800 rounded-3xl p-8 md:p-10 lg:p-12">
+              <p className="text-sm font-semibold text-yellow-400 mb-4">
+                三大铁律 · 永不更改
               </p>
-              <p className="text-gray-300 dark:text-gray-700">
-                {t('req.notice.philosophy')}
-              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-8">
+                纪律刻在血液里 · 肩负起自己的使命
+              </h2>
+
+              <div className="space-y-6">
+                {/* 军令 1 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">1</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text-white">纪律至上</p>
+                    <p className="text-sm text-gray-300">
+                      所有决策都围绕交易纪律和科学交易系统执行，情绪化自动出局
+                    </p>
+                  </div>
+                </div>
+
+                {/* 军令 2 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items中心 justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">2</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text白">集体作战</p>
+                    <p className="text-sm text-gray-300">
+                      一人亏损全队承受；全队盈利全员共享收益，盈亏荣辱与共，每个交易员都要尽职尽责
+                    </p>
+                  </div>
+                </div>
+
+                {/* 军令 3 */}
+                <div className="border border-gray-800 rounded-2xl px-6 py-5 flex gap-4 items-start">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-yellow-400 font-bold">3</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold mb-1 text-white">战功晋升</p>
+                    <p className="text-sm text-gray-300">
+                      凭借可追踪的战功晋升权益，包括不限于解锁更高资金、更高权重，成为团队管理者等等
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 视频介绍板块 */}
-      <div className="bg-gray-50 dark:bg-gray-900 py-20 border-y-2 border-gray-200 dark:border-gray-800">
+        {/* 成长路径 / 晋升体系 */}
+      <div className="bg-black dark:bg-black py-20 border-y-2 border-gray-800">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">
-            {t('video.title')}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center mb-4 text-white">
+            明确考核标准与权益 · 保证你走得快、走得稳、走得远
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
-            {t('video.subtitle')}
+          <p className="text-center text-gray-400 mb-12 text-sm md:text-base">
+            每一个等级，都对应清晰的「权益」与「考核标准」，你只需按要求完成，剩下交给系统和团队。
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* 视频 1 */}
-            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden group hover:border-black dark:hover:border-white transition-all">
-              <div className="relative h-64 bg-black dark:bg-gray-700 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-6xl mb-4"></div>
-                  <p className="text-lg font-semibold">{t('video.doc1.title')}</p>
-                  <p className="text-sm text-gray-400">{t('video.doc1.rating')}</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{t('video.doc1.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  {t('video.doc1.desc')}
-                </p>
-                <a
-                  href="https://www.bilibili.com/video/BV19a411X7eY"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold border-2 border-black dark:border-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors"
-                >
-                  {t('video.doc1.cta')}
-                </a>
-              </div>
+          <div className="overflow-hidden rounded-3xl border border-gray-800 bg-gradient-to-b from-gray-950 to-black">
+            {/* 表头 */}
+            <div className="grid grid-cols-12 px-6 py-4 border-b border-gray-800 text-xs md:text-sm text-gray-400 uppercase tracking-[0.2em]">
+              <div className="col-span-3 md:col-span-3">RANK</div>
+              <div className="col-span-5 md:col-span-5">权益</div>
+              <div className="col-span-4 md:col-span-4 text-right md:text-left">考核标准</div>
             </div>
 
-            {/* 视频 2 */}
-            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden group hover:border-black dark:hover:border-white transition-all">
-              <div className="relative h-64 bg-black dark:bg-gray-700 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-6xl mb-4"></div>
-                  <p className="text-lg font-semibold">{t('video.doc2.title')}</p>
-                  <p className="text-sm text-gray-400">{t('video.doc2.rating')}</p>
+            <div className="divide-y divide-gray-800">
+              {/* 1 入门新人（学员） */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-base">1</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">入门学员</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    解锁交易系统，熟悉科学交易动作，完成基础训练，固化交易策略
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items-center md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    连续 10 日练习，每日 ≥ 8 笔，按要求记录与复盘。
+                  </p>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{t('video.doc2.title')}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  {t('video.doc2.desc')}
-                </p>
-                <a
-                  href="https://www.bilibili.com/video/BV1FZ4y1o734"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold border-2 border-black dark:border-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors"
-                >
-                  {t('video.doc2.cta')}
-                </a>
+
+              {/* 2 预备交易员 */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-base">2</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">预备交易员</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    解锁全球卫星系统（AI 监控），获得实时策略信号
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items-center md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    连续 4 周实盘（团队提供），每周 ≥ 200 美元收益，回撤 ≤ 25%
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 初级交易员 */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center">
+                    <span className="text黄色-400 font-bold text-base">3</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">初级交易员</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    加入矩阵，个人盈利 60%-90% + 矩阵季度分润。
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items-center md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    保持周盈利，日回撤 ≤ 15%，周回撤 ≤ 25%。
+                  </p>
+                </div>
+              </div>
+
+              {/* 4 中级交易员 */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-base">4</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">中级交易员</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    解锁更全体系技术理论，进入核心资金池
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items-center md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    实盘两年以上或贡献 2 万美元利润。
+                  </p>
+                </div>
+              </div>
+
+              {/* 5 高级交易员 */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border黄色-400 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-base">5</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">高级交易员</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    解锁稳定高额度资金权限，解锁基金经理雏形
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items中心 md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    实盘五年以上或贡献 10 万美元利润。
+                  </p>
+                </div>
+              </div>
+
+              {/* 6 团队长 */}
+              <div className="grid grid-cols-12 px-6 py-6 gap-4 text-sm md:text-base">
+                <div className="col-span-3 md:col-span-3 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full border border-yellow-400 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-base">6</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">团队长</p>
+                    <p className="text-xs text-yellow-500">RANK</p>
+                  </div>
+                </div>
+                <div className="col-span-5 md:col-span-5 flex items-center">
+                  <p className="text-gray-300">
+                    享每位士兵盈利 20% 分成，根据战绩共享盈利
+                  </p>
+                </div>
+                <div className="col-span-4 md:col-span-4 flex items-center md:justify-start justify-end">
+                  <p className="text-gray-400 text-right md:text-left">
+                    3 个作战小组，每组 3 人，统计综合数据
+                  </p>
+                  
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
+     
+
+            {/* 富利者特训营入营通道选择器 */}
+      <EntrySelector
+        onStandardClick={() => router.push(`/${language}/splan/join-us`)}
+        onEliteClick={() => router.push(`/${language}/splan/elite-evaluation`)}
+        onPremiumClick={() => setIsEmailModalOpen(true)}
+      />
+
+             {/* Comparison – 用竞品对比替代“了解交易员职业” */}
+        <section className="bg-black dark:bg-black text-white rounded-3xl border border-gray-800 px-6 py-14">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-10">
+            富利者 vs 其它 · 差距不仅在技术战术而且在理念
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {/* Column 1 – 富利者训练营 */}
+            <div className="bg-gradient-to-b from-yellow-900/40 to-black border border-yellow-500/70 rounded-3xl p-6 flex flex-col gap-4">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-lg font-bold text-yellow-400">富利者训练营</p>
+                <span className="text-xs px-3 py-1 border border-yellow-400 rounded-full">核心</span>
+              </div>
+
+              <div className="space-y-3 text-sm">
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">定位</span>
+                  <span className="font-semibold text-white">科学训练系统</span>
+                </div>
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">价格</span>
+                  <span className="font-semibold text-white">98</span>
+                </div>
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">实盘机制</span>
+                  <span className="font-semibold text-white">提供实盘资金</span>
+                </div>
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">核心特点</span>
+                  <span className="font-semibold text-white text-right">
+                    简单易复制盈利，团队作战
+                  </span>
+                </div>
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">晋升</span>
+                  <span className="font-semibold text-white text-right">
+                    发展前途全面，路径透明
+                  </span>
+                </div>
+                <div className="bg-black/40 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">退款</span>
+                  <span className="font-semibold text-white text-right">
+                    7天内可全额退
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2 – 某十交易 */}
+            <div className="bg-black border border-gray-800 rounded-3xl p-6 flex flex-col gap-4">
+              <p className="text-lg font-bold text-white mb-2">某十交易课程</p>
+              <div className="space-y-3 text-sm">
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">定位</span>
+                  <span className="font-semibold">课程</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">价格</span>
+                  <span className="font-semibold">49,998</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">实盘机制</span>
+                  <span className="font-semibold">自负盈亏</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">核心特点</span>
+                  <span className="font-semibold text-right">
+                    课程内容多，但很难真正落地盈利
+                  </span>
+                </div>
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">晋升</span>
+                  <span className="font-semibold">无</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">退款</span>
+                  <span className="font-semibold">不退款</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3 – 跟单社区 VIP */}
+            <div className="bg-black border border-gray-800 rounded-3xl p-6 flex flex-col gap-4">
+              <p className="text-lg font-bold text-white mb-2"> 某跟单社区VIP</p>
+              <div className="space-y-3 text-sm">
+                <div className="bg-white/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">定位</span>
+                  <span className="font-semibold">社群</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">价格</span>
+                  <span className="font-semibold">18888 / 年</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">实盘机制</span>
+                  <span className="font-semibold">自负盈亏</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">核心特点</span>
+                  <span className="font-semibold text-right">
+                    只能被动跟单，难以稳定盈利
+                  </span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">晋升</span>
+                  <span className="font-semibold">无</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">退款</span>
+                  <span className="font-semibold">不退款</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 4 – 某量化策略 */} 
+            <div className="bg黑 border border-gray-800 rounded-3xl p-6 flex flex-col gap-4">
+              <p className="text-lg font-bold text-white mb-2">某量化策略</p>
+              <div className="space-y-3 text-sm">
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">定位</span>
+                  <span className="font-semibold">自动化交易</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">价格</span>
+                  <span className="font-semibold">29,800</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">实盘机制</span>
+                  <span className="font-semibold">自负盈亏</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">核心特点</span>
+                  <span className="font-semibold text-right">
+                    人工高频，可短期盈利，但容易被 EA 替代
+                  </span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">晋升</span>
+                  <span className="font-semibold">无</span>
+                </div>
+                <div className="bg白/5 rounded-2xl px-4 py-3 flex justify-between">
+                  <span className="text-gray-400">退款</span>
+                  <span className="font-semibold">不退款</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
       {/* 学员展示 - 收益滚动 */}
       <div className="max-w-7xl mx-auto px-6 py-20">
@@ -626,76 +688,7 @@ const DummyContent = () => {
         </div>
       </div>
 
-      {/* CTA - 优化版 */}
-      <div className="bg-black dark:bg-gray-950 py-20 w-full border-y-2 border-gray-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            {t('cta.title')}
-          </h2>
-          <p className="text-xl text-gray-300 mb-4">
-            {t('cta.subtitle')}
-          </p>
-
-          {/* 通过率警告 - 重新设计 */}
-          <div className="relative max-w-3xl mx-auto mb-12">
-            {/* 背景装饰 */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-red-500/20 to-yellow-500/20 blur-xl"></div>
-
-            <div className="relative bg-gradient-to-br from-gray-900 to-black border-2 border-yellow-500/50 p-8 shadow-2xl">
-              <div className="flex flex-col items-center mb-6">
-                <div className="w-16 h-16 bg-yellow-500 flex items-center justify-center mb-4">
-                  <svg className="w-10 h-10 text-black" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-black text-yellow-500 mb-2">{t('cta.notice.title')}</h3>
-                <div className="h-1 w-24 bg-yellow-500"></div>
-              </div>
-
-              <div className="text-center mb-8">
-                <p className="text-sm text-gray-400 mb-3">{t('cta.passrate')}</p>
-                <p className="text-6xl font-black text-white mb-2">
-                  <span className="text-yellow-500">10</span>-<span className="text-yellow-500">15</span><span className="text-4xl">%</span>
-                </p>
-                <p className="text-gray-300 text-lg">
-                  {t('cta.passrate.desc')}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="bg-black/50 backdrop-blur-sm p-4 border border-red-500/30">
-                  <p className="text-xs text-gray-500 mb-2">{t('cta.elimination')}</p>
-                  <p className="text-sm text-white font-bold">{t('cta.elimination.reason')}</p>
-                </div>
-                <div className="bg-black/50 backdrop-blur-sm p-4 border border-red-500/30">
-                  <p className="text-xs text-gray-500 mb-2">{t('cta.opportunity')}</p>
-                  <p className="text-sm text-white font-bold">{t('cta.opportunity.value')}</p>
-                </div>
-                <div className="bg-black/50 backdrop-blur-sm p-4 border border-red-500/30">
-                  <p className="text-xs text-gray-500 mb-2">{t('cta.time.cost')}</p>
-                  <p className="text-sm text-white font-bold">{t('cta.time.value')}</p>
-                </div>
-                <div className="bg-black/50 backdrop-blur-sm p-4 border border-green-500/30">
-                  <p className="text-xs text-gray-500 mb-2">{t('cta.money.cost')}</p>
-                  <p className="text-sm text-green-400 font-bold">{t('cta.money.value')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <button
-              onClick={() => setIsEmailModalOpen(true)}
-              className="px-10 py-5 bg-white text-black font-bold text-lg border-2 border-white hover:bg-black hover:text-white transition-colors animate-shake"
-            >
-              {t('cta.button.interview')}
-            </button>
-            <p className="text-sm text-gray-500">
-              {t('cta.button.note')}
-            </p>
-          </div>
-        </div>
-      </div>
+  
 
       {/* Email Contact Modal */}
       {/* Stats Section */}
@@ -721,7 +714,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-black dark:bg-black text-white dark:text-white">
       <DummyContent />
     </div>
   );

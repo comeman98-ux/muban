@@ -18,7 +18,7 @@ interface StatItem {
 const stats: StatItem[] = [
   {
     id: 'students',
-    value: '500',
+    value: '13000',
     suffix: '+',
     label: {
       zh: '已培训学员',
