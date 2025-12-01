@@ -1,0 +1,120 @@
+"use client";
+import { Code, Flex, Text } from "@radix-ui/themes";
+import { LinkPreview } from "@/components/ui/link-preview";
+import { SparklesCore } from "@/components/ui/sparkles";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import EmailContactModal from '@/components/custom/EmailContactModal';
+import BrandName from '@/components/custom/BrandName';
+import BrandSlogans from '@/components/custom/BrandSlogans';
+import { FadeInSlide, ScaleFadeIn, HoverCard, PulseButton, FloatingBadge, StaggeredFadeIn } from '@/components/custom/AnimatedSection';
+import Testimonials from '@/components/custom/Testimonials';
+import StatsSection from '@/components/custom/StatsSection';
+import InterviewCTA from '@/components/custom/InterviewCTA';
+import CandlestickChart from '@/components/custom/CandlestickChart';
+import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import ShineButton from '@/components/custom/ShineButton';
+
+const DummyContent = () => {
+  const router = useRouter();
+  const { t, language } = useLanguage();
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // 收益图片列表 (1-15)
+  const profitImages = [
+    '/profits/1.png',
+    '/profits/2.png',
+    '/profits/3.png',
+    '/profits/4.png',
+    '/profits/5.png',
+    '/profits/6.png',
+    '/profits/7.png',
+    '/profits/8.png',
+    '/profits/9.png',
+    '/profits/10.png',
+    '/profits/11.png',
+    '/profits/12.jpg',
+    '/profits/13.png',
+    '/profits/14.png',
+    '/profits/15.png',
+  ];
+
+  // 自动滚动图片 - 每次显示3�?
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => {
+        const nextIndex = prev + 3;
+        // 如果超出范围，回到开�?
+        return nextIndex >= profitImages.length ? 0 : nextIndex;
+      });
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [profitImages.length]);
+
+  return (
+    <div className="w-full -mt-20">
+      {/* Hero Section - Full Width K-line Background */}
+      <div className="relative bg-white dark:bg-black overflow-hidden h-screen">
+        {/* K-line Chart Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <CandlestickChart />
+        </div>
+
+        {/* Gradient Overlay - from left (opaque) to right (transparent) */}
+        <div
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 30%, rgba(255, 255, 255, 0.3) 60%, rgba(255, 255, 255, 0) 100%)'
+          }}
+        />
+        <div
+          className="absolute inset-0 w-full h-full pointer-events-none dark:block hidden"
+          style={{
+            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0) 100%)'
+          }}
+        />
+
+        {/* Content Overlay - Centered in viewport */}
+        <div className="relative z-10 flex items-center h-full">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="max-w-3xl flex flex-col space-y-10">
+            {/* Main Title */}
+            <ScaleFadeIn delay={0.2}>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-black dark:text-white tracking-tight leading-none">
+                <BrandName />
+              </h1>
+            </ScaleFadeIn>
+
+            {/* Subtitle */}
+            <FadeInSlide direction="right" delay={0.4}>
+              <p className="text-2xl md:text-3xl lg:text-4xl text-black dark:text-white font-bold leading-tight">
+                {t('hero.subtitle')}
+              </p>
+            </FadeInSlide>
+
+            {/* CTAs */}
+            <FadeInSlide direction="right" delay={0.6}>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <PulseButton>
+                  <ShineButton
+                    onClick={() => router.push(`/${language}/splan/join-us`)}
+                    className="px-12 py-6 bg-black dark:bg-white text-white dark:text-black text-xl font-black border-2 border-black dark:border-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all shadow-lg"
+                  >
+                    {t('hero.cta.learn')}
+                  </ShineButton>
+                </PulseButton>
+                <button
+                  onClick={() => router.push(`/${language}/dashboard`)}
+                  className="px-12 py-6 bg-white dark:bg-black text-black dark:text-white text-xl font-black border-2 border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+                >
+                  {t('hero.cta.dashboard')}
+                </button>
+              </div>
+            </FadeInSlide>
+            </div>
+          </div>
+        </div>
+      </div>
+
