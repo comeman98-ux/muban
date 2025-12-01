@@ -24,10 +24,10 @@ type CtaContent = {
 const content: Record<"zh" | "en", CtaContent> = {
   zh: {
     badge: "开始你的交易员之路",
-    title: "准备好改变人生了吗？",
+    title: "如果你想有一次实现理想的机会",
     subtitle: "立即预约，开启你的职业交易员生涯",
     description:
-      "我们正在寻找有潜力的交易员候选人。完全免费的 30 天训练营，通过考核即可获得资金支持。",
+      "我们会培养有潜力的交易员候选人，通过考核即可获得资金支持。",
     button: "立即预约加入",
     features: [
       { icon: "✅", text: "低成本、专注交易训练" },
