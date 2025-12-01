@@ -19,29 +19,27 @@ const translations: Record<Language, Record<string, string>> = {
   zh: {
     // 品牌名
     'brand.name': '富利者',
-    'brand.full': '富利者',
+    'brand.full': 'FX Killer',
 
     // 导航栏
     'nav.home': '首页',
-    'nav.training': '训练计划',
+    'nav.training': '培训',
     'nav.tradingTools': '工具',
     'nav.blog': '博客',
     'nav.psychology': '测评',
     'nav.dashboard': '量化',
     'nav.faq': 'FAQ',
     'nav.membership': '捐赠',
-    'nav.join': '立即加入训练计划',
+    'nav.join': '立即报名',
 
     // Hero Section
-    'hero.title': '富利者科学训练计划',
-    'hero.subtitle': '用严谨的科学训练体系，打造可复制，可量化的稳定交易系统',
-    'hero.cta.learn': '进入训练计划',
-    'hero.cta.dashboard': '查看训练体系',
-    'hero.note': '适合希望摆脱情绪交易、建立长期稳定盈利能力的交易者与准职业交易员',
-
+    'hero.title': 'Professional FX Trader Training Platform',
+    'hero.subtitle': '精准、专业、高效 - 我爱富利者交易专家',
+    'hero.cta.learn': '了解外汇培训',
+    'hero.cta.dashboard': '进入交易系统',
 
     // Why Choose Section
-      // Founder Intro / 发起人自述
+        // Founder Intro / 发起人自述
     'founder.title': '我是谁 · 发起人自述',
     'founder.p1': '我叫富利者',
     'founder.p2':
@@ -56,35 +54,35 @@ const translations: Record<Language, Record<string, string>> = {
 
 
     // Comparison
-    'comparison.vs': 'VS 传统培训机构',
-    'comparison.': '富利者',
+    'comparison.vs': 'VS 传统外汇培训',
+    'comparison.fxkiller': '富利者',
     'comparison.traditional': '传统培训机构',
-    'comparison.free': '完全免费 - 无任何培训费用，真正的0门槛学习',
-    'comparison.practical': '实战培养 - 30-45天系统化职业训练',
+    'comparison.free': '完全免费 - 无任何培训费用',
+    'comparison.practical': '实战培养 - 30天系统化职业训练',
     'comparison.selection': '精准筛选 - 不适合直接劝退，避免浪费时间',
     'comparison.funding': '资金支持 - 通过考核后提供交易资金',
     'comparison.share': '高额分成 - 盈利60%-90%归你所有',
     'comparison.career': '职业发展 - 培养独立交易员或基金经理',
     'comparison.discipline': '严格纪律 - 军事化管理，培养职业素养',
     'comparison.highfee': '高额学费 - 动辄数万元培训费',
-    'comparison.theory': '理论为主 - 缺乏实战指导，大部分都是基础理论',
-    'comparison.acceptall': '来者不拒 - 只要交钱就能学，没有任何限制',
-    'comparison.selffunded': '自负盈亏 - 交易全靠自己，学不到交易思维的核心',
-    'comparison.nosupport': '无后续支持 - 培训结束即结束，学完后只能自己摸索',
-    'comparison.noplan': '无职业规划 - 后续没有发展方向和规划',
+    'comparison.theory': '理论为主 - 缺乏实战指导',
+    'comparison.acceptall': '来者不拒 - 只要交钱就能学',
+    'comparison.selffunded': '自负盈亏 - 交易全靠自己',
+    'comparison.nosupport': '无后续支持 - 培训结束即结束',
+    'comparison.noplan': '无职业规划 - 学完后自己摸索',
     'comparison.loose': '松散管理 - 容易养成不良交易习惯',
-    'comparison.emphasis': '我们致力于用最短的时间从大量人群中筛选出少数适合做交易的人才并进行培养并给予支持',
+    'comparison.emphasis': '我们致力于用最短的时间从大量人群中筛选出少数适合做外汇交易的人才并进行培养并给予支持',
 
     // Career Path
     'career.title': '职业发展路径',
-    'career.subtitle': '30-45个工作日系统化培养，从新手到职业交易员的完整路径',
+    'career.subtitle': '30个工作日系统化培养，从新手到职业外汇交易员的完整路径',
     'career.stage1.days': '第1-5个工作日',
     'career.stage1.title': '规则学习',
-    'career.stage1.desc': '完成进场点练习，熟悉交易系统基本规则和风控意识',
+    'career.stage1.desc': '完成15个标准进场点练习，熟悉外汇交易系统基本规则',
     'career.stage1.warning': ' 5天内未通过规则考核将被劝退',
     'career.stage2.days': '第6-20个工作日',
     'career.stage2.title': '盈利练习',
-    'career.stage2.desc': '按照盈利考核标准进行练习，逐渐形成自己的量化策略和交易计划',
+    'career.stage2.desc': '找到适合自己的外汇交易品种，按照盈利考核标准进行练习',
     'career.stage2.tip': ' 保持操作一致性，不错单、不漏单、不亏损',
     'career.stage3.days': '第21-30个工作日',
     'career.stage3.title': '盈利考核',
@@ -92,19 +90,17 @@ const translations: Record<Language, Record<string, string>> = {
     'career.stage3.success': ' 通过考核进入小额实盘阶段',
     'career.stage4.path': '小额实盘  大额矩阵',
     'career.stage4.title': '职业交易员',
-    'career.stage4.desc': '20个工作日小额实盘固化后进入大额矩阵',
-    'career.stage4.goal': '完全自由的工作时间，正式开始成为一个数字游民，开启职业交易员生涯。',
-    
-  
+    'career.stage4.desc': '20个工作日小额实盘固化后，进入大额矩阵',
+    'career.stage4.goal': ' 完全自由的工作时间，开始独立外汇交易员生涯',
 
     // Requirements
     'req.title': '你是否符合基本条件',
-    'req.subtitle': '严格的准入标准，确保培训质量 - 每个人只有一次进入的机会',
+    'req.subtitle': '严格的准入标准，确保外汇培训质量 - 每个人只有一次进入的机会',
     'req.profile.title': ' 人群画像',
     'req.profile.education': '学历与年龄',
     'req.profile.education.desc': '大专学历以上，35岁以下',
     'req.profile.psychology': '心理素质',
-    'req.profile.psychology.desc': '认真、细心、耐心、心理健康，有韧性',
+    'req.profile.psychology.desc': '认真、细心、耐心、心理健康',
     'req.profile.character': '性格特质',
     'req.profile.character.desc': '性格内向、稳重、纪律严明且执行力强',
     'req.time.title': ' 时间与环境',
@@ -116,13 +112,13 @@ const translations: Record<Language, Record<string, string>> = {
     'req.time.environment.desc': '独立的交易环境，专注不被打扰',
     'req.online.title': ' 在线时间',
     'req.online.hours': '交易时段',
-    'req.online.hours.desc': '周一到周五 13:00-22:00',
+    'req.online.hours.desc': '周一到周五 13:30-21:30',
     'req.online.debrief': '团队复盘',
-    'req.online.debrief.desc': '每天22:00教练会议室复盘（包含问题优化和思维拆解）',
+    'req.online.debrief.desc': '每天20:00团队长会议室复盘',
     'req.notice.title': '重要提醒',
     'req.notice.once': '每个人只有一次进入的机会',
     'req.notice.desc': '请在充分了解并确认自己符合全部条件后再申请。',
-    'req.notice.philosophy': '我们专注培养真正适合交易的人才。在交易世界里，有些人天生不适合。他们急于求成，却不知自己真正追求什么；他们只瞥一眼表象，便止步不前，无法洞察事物的深层本质。如果你属于这一类，或许其他行业更能发挥你的长处。',
+    'req.notice.philosophy': '我们专注培养真正适合外汇交易的人才。在外汇交易的世界里，有些人天生不适合。他们急于求成，却不知自己真正追求什么；他们只瞥一眼表象，便止步不前，无法洞察事物的深层本质。如果你属于这一类，或许其他行业更能发挥你的长处。',
 
     // Video Section
     'video.title': '了解交易员职业',
@@ -146,8 +142,8 @@ const translations: Record<Language, Record<string, string>> = {
     'showcase.screenshots.note': '以上为学员真实交易收益截图',
 
     // CTA Section
-    'cta.title': '准备好开启你的职业交易员生涯了吗？',
-    'cta.subtitle': '记住：最大风险是淘汰，成本是时间。如果已经一切清楚并且准备就绪，预约面试。通过后，正式入训。',
+    'cta.title': '准备好开启你的外汇交易员生涯了吗？',
+    'cta.subtitle': '记住：最大风险是淘汰，成本是时间。若明朗、准备就绪，预约面试。通过后，入训。',
     'cta.notice.title': '特别提示',
     'cta.passrate': '最终通过率',
     'cta.passrate.value': '10-15%',
@@ -164,14 +160,14 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.button.note': '请在充分了解并确认自己符合全部条件后再申请',
 
     // Footer
-    'footer.about': '专注于职业交易员的培训平台，用专业的方法筛选和培养真正适合交易市场的交易人才。',
+    'footer.about': '专注于外汇交易的职业交易员培训平台，用专业的方法筛选和培养真正适合外汇市场的交易人才。',
     'footer.nav.title': '快速导航',
     'footer.resources.title': '资源',
     'footer.contact.title': '联系我们',
     'footer.contact.focus': '专注外汇交易培训',
     'footer.contact.cultivate': '培养职业外汇交易员',
     'footer.contact.apply': '立即申请',
-    'footer.copyright': '© 富利者 · 专业交易员培训平台 · fulizhe.com。',
+    'footer.copyright': '© 富利者 · 专业外汇交易员培训平台 · fxkiller.com',
     'footer.disclaimer': ' 外汇交易有风险，投资需谨慎 · 本站内容仅供学习参考，不构成投资建议',
     'footer.partners.title': '合作伙伴',
     'footer.partners.brokers': '合作经纪商',
@@ -184,7 +180,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Join Us Page
     'joinus.hero.badge': 'PROFESSIONAL TRADER TRAINING',
     'joinus.hero.title1': '富利者',
-    'joinus.hero.title2': '交易员训练计划',
+    'joinus.hero.title2': '外汇交易员培训',
     'joinus.hero.subtitle': '培养真正适合的人，留下极少数，劝返大多数',
     'joinus.hero.stat1': '通过率',
     'joinus.hero.stat2': '完整培训',
@@ -199,7 +195,7 @@ const translations: Record<Language, Record<string, string>> = {
     'joinus.welcome.desc': '在这里，你不需要老板，你自己就是老板。事实上的任何地方，你都可以随心所欲，在阿尔卑斯山滑雪，夏威夷游泳或北海道发呆……金钱会源源不断地自动流入你的口袋。从你通过考核那一天起，你就可以遨游在世界的任何一个角落，旅行、生活或工作，哪怕是漫无目的的活着；既不需要为日常的琐事烦恼，也不需要看任何人的脸色行事，自由自在心无旁骛的同时，尽可能地把生命旅程延展……',
 
     'joinus.about.title': '关于我们',
-    'joinus.about.desc1': '我们是一个专注于筛选和培养顶尖外汇交易员的培训组织，我们致力于用最短的时间从大量人群中筛选出少数适合做交易的人才并进行培养并给予支持。',
+    'joinus.about.desc1': '我们是一个专注于筛选和培养顶尖外汇交易员的培训组织，我们致力于用最短的时间从大量人群中筛选出少数适合做外汇交易的人才并进行培养并给予支持。',
     'joinus.about.desc2': '简单来说，我们在招聘外汇交易员，但绝不是从事交易多年，有经验的交易员。因为优秀的交易员不会在人才市场上流通，只能亲自培养。所以换句话说，我们在亲自筛选和培养我们的交易员，并致力于将合格的交易员培养成基金经理。',
     'joinus.about.timeline': '我们将在 45天(30个工作日) 内判断新人是否是做外汇交易的可塑之才：',
     'joinus.about.phase1.title': '前20个工作日',
@@ -226,11 +222,11 @@ const translations: Record<Language, Record<string, string>> = {
     'joinus.profile.income.desc': '任何盈利导向的企业，都不会做亏本买卖。即使高薪聘请一个一无所知的应届生，也源于政府补贴或对该人潜力的判断。在我们这个极简行业，所有价值都源于二级市场的买卖差价——简单、直接、残酷。在你证明盈利能力（通过考核）之前，我们不会投入一分钱。考核通过后，你的实际收入，绝不会超过你在"战场"（二级市场）上缴获的"战利品"。',
     'joinus.profile.basic.title': '基本条件',
     'joinus.profile.basic.1': '大专学历以上，35岁以下',
-    'joinus.profile.basic.2': '认真、细心、耐心、心理健康，有韧性',
+    'joinus.profile.basic.2': '认真、细心、耐心、心理健康',
     'joinus.profile.basic.3': '连续30个工作日(约45天)，Windows电脑',
     'joinus.profile.basic.4': '独立的交易环境',
     'joinus.profile.time.title': '时间要求',
-    'joinus.profile.time.1': '周一到周五，每天最低保证 13:00 - 22:00 在线',
+    'joinus.profile.time.1': '周一到周五，每天最低保证 13:30 - 21:30 在线',
     'joinus.profile.time.2': '北京时间20:00 团队长会议室复盘',
 
     'joinus.plan.title': '成长计划',
@@ -297,7 +293,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.hero.desc': '开启职业交易之路前，先读懂这些问题',
     'faq.search.placeholder': '搜索问题...',
     'faq.search.button': '搜索',
-    'faq.category.course': '关于 富利者',
+    'faq.category.course': '关于 FX Killer',
     'faq.category.learning': '关于培训',
     'faq.category.pricing': '关于收入与分润',
     'faq.category.support': '交易铁律',
@@ -348,7 +344,7 @@ const translations: Record<Language, Record<string, string>> = {
     'donate.how.step1.title': '完成心理测评',
     'donate.how.step1.desc': '首先完成心理测评，确保您具备成为职业交易员的心理素质',
     'donate.how.step2.title': '发送邮件申请',
-    'donate.how.step2.desc': '邮件至 fulizhe@yeah.net，说明您的意向',
+    'donate.how.step2.desc': '邮件至 x.stark.dylan@gmail.com，说明您的意向',
     'donate.how.step3.title': '获取捐赠地址',
     'donate.how.step3.desc': '我们将通过邮件回复您具体的 USDT/USDC 捐赠地址',
     'donate.how.step4.title': '完成捐赠并开始培训',
@@ -420,14 +416,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Email Contact Modal
     'email.default.title': '外汇交易员面试',
-    'email.subject': '交易训练计划沟通',
+    'email.subject': '外汇交易员沟通',
     'email.description': '请发送您的简历到以下邮箱,我们会尽快与您联系：',
     'email.address.label': '邮箱地址：',
     'email.copy': '复制',
     'email.copied': '邮箱地址已复制到剪贴板',
     'email.subject.label': '邮件主题：',
     'email.tip': '提示：',
-    'email.tip.text': '请在邮件中包含您的基本信息、教育背景、以及为什么想成为交易员',
+    'email.tip.text': '请在邮件中包含您的基本信息、教育背景、以及为什么想成为外汇交易员。',
     'email.send': '打开邮件客户端',
     'email.close': '关闭',
 
@@ -440,7 +436,7 @@ const translations: Record<Language, Record<string, string>> = {
     'dashboard.tab.tianti': '天梯',
     'dashboard.tab.config': '策略配置',
     'dashboard.footer.warning': ' 仅用于测试环境。实盘交易需要充分测试和风险评估。',
-    'dashboard.footer.copyright': '2024-2025 © 富利者 专业交易员训练计划平台',
+    'dashboard.footer.copyright': '2024-2025 © FX Killer 专业外汇交易员培训平台',
 
     // Admin Login
     'login.title': '交易控制台',
@@ -452,7 +448,7 @@ const translations: Record<Language, Record<string, string>> = {
     'login.back': '返回首页',
 
     // Subscription Notification
-    'notification.message1': '已联系团队长参加交易员训练计划',
+    'notification.message1': '已联系团队长参加外汇交易员培训',
     'notification.message2': '已成为试用会员',
     'notification.time': '刚刚',
 
@@ -499,27 +495,13 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.backToBlog': '返回博客',
     'blog.relatedPosts': '相关文章',
     'blog.cta.title': '准备开始您的交易之旅？',
-    'blog.cta.subtitle': '加入富利者，接受专业的交易员培训',
+    'blog.cta.subtitle': '加入FX Killer，接受专业的交易员培训',
     'blog.cta.button': '立即加入',
-    
-    // 新增SplanFooter相关翻译
-    'education.center': '教育中心',
-    'tools.trading': '交易工具',
-    'tools.position': '仓位计算器',
-    'tools.riskReward': '风险回报计算器',
-    'tools.pip': '点值计算器',
-    'resources.other': '其他资源',
-    'privacy.policy': '隐私政策',
-    'wechat.contact': '微信联系方式',
-    'wechat.id': '微信号',
-    'wechat.copyTip': '复制微信号，在微信中添加好友',
-    'wechat.copyButton': '复制微信号',
-    'wechat.copied': '微信号已复制！'
   },
   en: {
     // Brand Name
-    'brand.name': 'Fulizhe',
-    'brand.full': 'Fulizhe',
+    'brand.name': 'FX Killer',
+    'brand.full': 'FX Killer',
 
     // Navigation
     'nav.home': 'Home',
@@ -539,7 +521,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta.dashboard': 'Enter Trading System',
 
     // Why Choose Section
-    'why.title': 'Why Choose 富利者',
+    'why.title': 'Why Choose FX Killer',
     'why.subtitle': 'Focused on selecting and cultivating elite forex traders, nurturing those truly suited, retaining the few, and advising the majority to pursue other paths',
 
     // Advantages
@@ -552,7 +534,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Comparison
     'comparison.vs': 'VS Traditional Forex Training',
-    'comparison.Fulizhe': '富利者',
+    'comparison.fxkiller': 'FX Killer',
     'comparison.traditional': 'Traditional Training Institutions',
     'comparison.free': 'Completely Free - No Training Fees',
     'comparison.practical': 'Practical Training - 30 Days of Systematic Professional Training',
@@ -664,7 +646,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.contact.focus': 'Focused on forex training',
     'footer.contact.cultivate': 'Cultivating professional forex traders',
     'footer.contact.apply': 'Apply Now',
-    'footer.copyright': '© 富利者 · Professional Forex Trader Training Platform · fulizhe.com',
+    'footer.copyright': '© FX Killer · Professional Forex Trader Training Platform · fxkiller.com',
     'footer.disclaimer': ' Forex trading carries risk, investment requires caution · Site content for learning reference only, not investment advice',
     'footer.partners.title': 'Partners',
     'footer.partners.brokers': 'Partner Brokers',
@@ -676,7 +658,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Join Us Page
     'joinus.hero.badge': 'PROFESSIONAL TRADER TRAINING',
-    'joinus.hero.title1': '富利者',
+    'joinus.hero.title1': 'FX Killer',
     'joinus.hero.title2': 'Forex Trader Training',
     'joinus.hero.subtitle': 'Cultivating those truly suited, retaining the few, advising the majority to pursue other paths',
     'joinus.hero.stat1': 'Pass Rate',
@@ -790,7 +772,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.hero.desc': 'Understand these questions before starting your professional trading journey',
     'faq.search.placeholder': 'Search questions...',
     'faq.search.button': 'Search',
-    'faq.category.course': 'About 富利者',
+    'faq.category.course': 'About FX Killer',
     'faq.category.learning': 'About Training',
     'faq.category.pricing': 'About Income & Profit Share',
     'faq.category.support': 'Trading Iron Laws',
@@ -841,7 +823,7 @@ const translations: Record<Language, Record<string, string>> = {
     'donate.how.step1.title': 'Complete Psychology Test',
     'donate.how.step1.desc': 'First complete the psychology test to ensure you possess the psychological qualities to become a professional trader',
     'donate.how.step2.title': 'Send Email Application',
-    'donate.how.step2.desc': 'Email to fulizhe@yeah.net explaining your intention',
+    'donate.how.step2.desc': 'Email to x.stark.dylan@gmail.com explaining your intention',
     'donate.how.step3.title': 'Obtain Donation Address',
     'donate.how.step3.desc': 'We will reply via email with the specific USDT/USDC donation address',
     'donate.how.step4.title': 'Complete Donation and Begin Training',
@@ -933,7 +915,7 @@ const translations: Record<Language, Record<string, string>> = {
     'dashboard.tab.tianti': 'Leaderboard',
     'dashboard.tab.config': 'Strategy Config',
     'dashboard.footer.warning': ' For testing environment only. Live trading requires thorough testing and risk assessment.',
-    'dashboard.footer.copyright': '2024-2025 © 富利者 Professional Forex Trader Training Platform',
+    'dashboard.footer.copyright': '2024-2025 © FX Killer Professional Forex Trader Training Platform',
 
     // Admin Login
     'login.title': 'Trading Dashboard',
@@ -992,22 +974,8 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.backToBlog': 'Back to Blog',
     'blog.relatedPosts': 'Related Posts',
     'blog.cta.title': 'Ready to Start Your Trading Journey?',
-    'blog.cta.subtitle': 'Join 富利者 for professional trader training',
+    'blog.cta.subtitle': 'Join FX Killer for professional trader training',
     'blog.cta.button': 'Join Now',
-    
-    // 新增SplanFooter相关翻译
-    'education.center': 'Education',
-    'tools.trading': 'Trading Tools',
-    'tools.position': 'Position Calculator',
-    'tools.riskReward': 'Risk/Reward Calculator',
-    'tools.pip': 'Pip Calculator',
-    'resources.other': 'Resources',
-    'privacy.policy': 'Privacy Policy',
-    'wechat.contact': 'WeChat Contact',
-    'wechat.id': 'WeChat ID',
-    'wechat.copyTip': 'Copy WeChat ID and add as friend in WeChat',
-    'wechat.copyButton': 'Copy WeChat ID',
-    'wechat.copied': 'WeChat ID copied!'
   }
 };
 
