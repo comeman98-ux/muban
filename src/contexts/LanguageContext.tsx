@@ -19,23 +19,23 @@ const translations: Record<Language, Record<string, string>> = {
   zh: {
     // 品牌名
     'brand.name': '富利者',
-    'brand.full': 'FX Killer',
+    'brand.full': 'Fu li',
 
     // 导航栏
     'nav.home': '首页',
-    'nav.training': '培训',
+    'nav.training': '训练计划',
     'nav.tradingTools': '工具',
     'nav.blog': '博客',
     'nav.psychology': '测评',
-    'nav.dashboard': '量化',
+    'nav.dashboard': '系统',
     'nav.faq': 'FAQ',
     'nav.membership': '捐赠',
-    'nav.join': '立即报名',
+    'nav.join': '立即加入',
 
     // Hero Section
-    'hero.title': 'Professional FX Trader Training Platform',
-    'hero.subtitle': '精准、专业、高效 - 我爱富利者交易专家',
-    'hero.cta.learn': '了解外汇培训',
+    'hero.title': '富利者科学交易训练体系',
+    'hero.subtitle': '用可复制的科学系统训练，帮助你构建稳定盈利的交易系统',
+    'hero.cta.learn': '了解训练计划',
     'hero.cta.dashboard': '进入交易系统',
 
     // Why Choose Section
@@ -160,15 +160,15 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.button.note': '请在充分了解并确认自己符合全部条件后再申请',
 
     // Footer
-    'footer.about': '专注于外汇交易的职业交易员培训平台，用专业的方法筛选和培养真正适合外汇市场的交易人才。',
+    'footer.about': '科学培训体系帮助学员摆脱盲目试错，帮助学员系统性的学习交易，构建自己的交易系统',
     'footer.nav.title': '快速导航',
     'footer.resources.title': '资源',
     'footer.contact.title': '联系我们',
-    'footer.contact.focus': '专注外汇交易培训',
-    'footer.contact.cultivate': '培养职业外汇交易员',
+    'footer.contact.focus': '专注科学化交易培训',
+    'footer.contact.cultivate': '科学化培养职业交易员',
     'footer.contact.apply': '立即申请',
-    'footer.copyright': '© 富利者 · 专业外汇交易员培训平台 · fxkiller.com',
-    'footer.disclaimer': ' 外汇交易有风险，投资需谨慎 · 本站内容仅供学习参考，不构成投资建议',
+    'footer.copyright': '© 富利者 · 科学化交易员培训平台 · fulizhe.com',
+    'footer.disclaimer': ' 交易有风险，投资需谨慎 · 本站内容仅供学习参考，不构成投资建议',
     'footer.partners.title': '合作伙伴',
     'footer.partners.brokers': '合作经纪商',
     'footer.partners.platforms': '合作平台',
@@ -180,8 +180,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Join Us Page
     'joinus.hero.badge': 'PROFESSIONAL TRADER TRAINING',
     'joinus.hero.title1': '富利者',
-    'joinus.hero.title2': '外汇交易员培训',
-    'joinus.hero.subtitle': '培养真正适合的人，留下极少数，劝返大多数',
+    'joinus.hero.title2': '科学化交易员培训',
+    'joinus.hero.subtitle': '入营即送『独家AI天气晴雨表』TradingView 版 2个月使用权限(覆盖全球品种)',
     'joinus.hero.stat1': '通过率',
     'joinus.hero.stat2': '完整培训',
     'joinus.hero.stat3': '分成比例',
@@ -293,7 +293,7 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.hero.desc': '开启职业交易之路前，先读懂这些问题',
     'faq.search.placeholder': '搜索问题...',
     'faq.search.button': '搜索',
-    'faq.category.course': '关于 FX Killer',
+    'faq.category.course': '关于 富利者',
     'faq.category.learning': '关于培训',
     'faq.category.pricing': '关于收入与分润',
     'faq.category.support': '交易铁律',

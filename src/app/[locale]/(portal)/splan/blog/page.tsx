@@ -11,13 +11,15 @@ export default function BlogPage() {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
+  const visiblePosts = blogPosts.filter(post => post.slug !== 'about-fx-killer');
+
   // Get all unique categories
-  const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))];
+  const categories = ['all', ...Array.from(new Set(visiblePosts.map(post => post.category)))];
 
   // Filter posts by category
   const filteredPosts = selectedCategory === 'all'
-    ? blogPosts
-    : blogPosts.filter(post => post.category === selectedCategory);
+    ? visiblePosts
+    : visiblePosts.filter(post => post.category === selectedCategory);
 
   // Sort posts by date (newest first)
   const sortedPosts = [...filteredPosts].sort((a, b) =>

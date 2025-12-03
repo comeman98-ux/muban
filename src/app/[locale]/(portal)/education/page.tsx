@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const lang = getLanguageFromLocale(locale);
 
   return generateBilingualMetadata(
-    '外汇交易教育中心 - 系统化学习外汇交易知识 | 富利者',
+    '交易教育中心 - 系统化学习外汇交易知识 | 富利者',
     'Forex Trading Education Center - Systematic Learning Path | 富利者',
     '完整的外汇交易教育体系，涵盖基础知识、技术分析、交易策略、风险管理。从零基础到职业交易员，富利者助你系统化学习外汇交易。',
     'Complete forex trading education system covering fundamentals, technical analysis, trading strategies, and risk management. From beginner to professional trader with 富利者.',
@@ -111,7 +111,7 @@ export default async function EducationPage({ params }: { params: Promise<{ loca
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {isZh ? (
               <>
-                系统化学习外汇交易知识，从零基础到职业交易员<br />
+                科学化，系统化学习交易知识，从零基础到职业交易员<br />
                 专业、实战、高效的学习路径
               </>
             ) : (
@@ -211,15 +211,15 @@ export default async function EducationPage({ params }: { params: Promise<{ loca
         <div className="bg-gray-50 dark:bg-gray-900 border-2 border-black dark:border-white p-12 mb-20">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-black mb-6 text-black dark:text-white">
-              {isZh ? '为什么选择 富利者 教育中心？' : 'Why Choose 富利者 Education Center?'}
+              {isZh ? '为什么选择 富利者 ？' : 'Why Choose 富利者 Education Center?'}
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               {isZh
-                ? '我们提供系统化的外汇交易教育，由职业交易员编写，注重实战应用。所有课程完全免费，24/7随时访问，配套专业交易工具支持。'
+                ? '我们提供科学化系统化的交易训练体系，由职业交易员编写，注重实战应用。24/7随时访问，配套专业交易工具支持。'
                 : 'We provide systematic forex trading education written by professional traders with focus on practical application. All courses are completely free, accessible 24/7, with professional trading tools support.'}
             </p>
             <p className="text-xl font-bold text-black dark:text-white">
-              {isZh ? '从零基础到职业交易员，助你在外汇市场稳定盈利' : 'From beginner to professional trader, helping you achieve consistent profits in forex markets'}
+              {isZh ? '从零基础到职业交易员员，助你在市场稳定盈利' : 'From beginner to professional trader, helping you achieve consistent profits in forex markets'}
             </p>
           </div>
         </div>
@@ -233,8 +233,8 @@ export default async function EducationPage({ params }: { params: Promise<{ loca
             <p className="text-xl mb-8 text-gray-300 dark:text-gray-700">
               {isZh ? (
                 <>
-                  完成教育中心的学习后，加入 富利者 30天系统化培训<br />
-                  通过考核，获得真实资金进行交易
+                  完成教育中心的学习后，加入 富利者 30天科学化训练<br />
+                  
                 </>
               ) : (
                 <>
