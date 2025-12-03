@@ -31,7 +31,7 @@ export default function SystemLoginPage() {
         return;
       }
 
-      router.push("/system/courses");
+      router.push("/system");
     } catch {
       setError(t("system.login.error"));
     } finally {
@@ -113,4 +113,3 @@ export default function SystemLoginPage() {
     </div>
   );
 }
-
