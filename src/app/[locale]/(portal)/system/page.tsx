@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 type TabKey = "resources" | "courses" | "satellite";
 
@@ -26,10 +27,12 @@ const courseLessons: Lesson[] = [
 ];
 
 export default function InternalSystemPage() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabKey>("courses");
   const [activeCourseId, setActiveCourseId] = useState<number>(1);
 
-  const activeCourse = courseLessons.find((l) => l.id === activeCourseId) ?? courseLessons[0];
+  const activeCourse =
+    courseLessons.find((l) => l.id === activeCourseId) ?? courseLessons[0];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black px-4 py-24">
@@ -51,7 +54,10 @@ export default function InternalSystemPage() {
             <button className="px-4 py-2 text-sm font-semibold rounded-md bg-yellow-500 text-black hover:bg-yellow-400 border border-yellow-500/80">
               身份管理
             </button>
-            <button className="px-4 py-2 text-sm font-semibold rounded-md border border-gray-600 text-gray-100 hover:bg-gray-900">
+            <button
+              className="px-4 py-2 text-sm font-semibold rounded-md border border-gray-600 text-gray-100 hover:bg-gray-900"
+              onClick={() => router.push("/system/login")}
+            >
               退出登录
             </button>
           </div>
