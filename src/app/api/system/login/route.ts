@@ -1,8 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sql } from "@vercel/postgres";
 import bcrypt from "bcryptjs";
+import { createClient } from "@supabase/supabase-js";
 
 const SESSION_COOKIE_NAME = "fx_system_session";
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceRoleKey) {
+  console.error(
+    "[system/login] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY env vars",
+  );
+}
+
+const supabase =
+  supabaseUrl && supabaseServiceRoleKey
+    ? createClient(supabaseUrl, supabaseServiceRoleKey)
+    : null;
 
 export async function POST(request: NextRequest) {
   const { identityId, password } = await request.json();
@@ -14,20 +28,36 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // 从数据库中查找对应的内部账号
-  const { rows } =
-    await sql`SELECT password_hash, is_active FROM system_users WHERE identity_id = ${identityId}`;
+  if (!supabase) {
+    return NextResponse.json(
+      { error: "Server configuration error" },
+      { status: 500 },
+    );
+  }
 
-  if (rows.length === 0 || !rows[0].is_active) {
+  // 从数据库中查找对应的内部账号
+  const { data, error } = await supabase
+    .from("system_users")
+    .select("password_hash, is_active")
+    .eq("identity_id", identityId)
+    .maybeSingle();
+
+  if (error) {
+    console.error("[system/login] Supabase query error:", error);
+    return NextResponse.json(
+      { error: "Database error" },
+      { status: 500 },
+    );
+  }
+
+  if (!data || !data.is_active) {
     return NextResponse.json(
       { error: "Invalid credentials" },
       { status: 401 },
     );
   }
 
-  const user = rows[0];
-
-  const ok = await bcrypt.compare(password, user.password_hash);
+  const ok = await bcrypt.compare(password, data.password_hash);
   if (!ok) {
     return NextResponse.json(
       { error: "Invalid credentials" },
