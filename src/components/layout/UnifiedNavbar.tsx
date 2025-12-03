@@ -47,7 +47,7 @@ export default function UnifiedNavbar() {
     },
     {
       name: t('nav.dashboard'),
-      link: "/dashboard",
+      link: "/system/login",
     },
     {
       name: t('nav.tradingTools'),

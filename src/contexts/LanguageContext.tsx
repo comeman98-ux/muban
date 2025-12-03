@@ -37,6 +37,33 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': '用可复制的科学系统训练，帮助你构建稳定盈利的交易系统',
     'hero.cta.learn': '了解训练计划',
     'hero.cta.dashboard': '进入交易系统',
+    // System Login
+    'system.login.badge': '富利者 · 系统登录',
+    'system.login.title': '内部系统',
+    'system.login.subtitle': '请输入内部密码以继续',
+    'system.login.identityLabel': '身份 ID',
+    'system.login.identityPlaceholder': '例如：X7K9P2M4Q1',
+    'system.login.passwordLabel': '内部密码',
+    'system.login.passwordPlaceholder': '请输入密码',
+    'system.login.submit': '登录',
+    'system.login.backHome': '返回首页',
+    'system.login.error': '身份 ID 或内部密码错误，请检查后再试。',
+    'system.login.loading': '正在登录...',
+    // System Courses
+    'system.courses.badge': '富利者 · 内部课程系统',
+    'system.courses.title': '内部课程总览',
+    'system.courses.subtitle': '按顺序完成每个模块，系统化掌握富利者内部训练流程和实战规则。',
+    'system.courses.level.basic': '基础模块',
+    'system.courses.level.intermediate': '进阶模块',
+    'system.courses.level.advanced': '高级模块',
+    'system.courses.status.inProgress': '进行中',
+    'system.courses.status.locked': '尚未解锁',
+    'system.courses.module1.title': '规则与纪律基础',
+    'system.courses.module1.desc': '从零开始理解富利者内部规则框架、执行标准以及常见违规场景示例。',
+    'system.courses.module2.title': '交易系统执行流程',
+    'system.courses.module2.desc': '学习如何将训练规则落实到每天的操作流程中，完成标准化复盘。',
+    'system.courses.module3.title': '风险与资金管理',
+    'system.courses.module3.desc': '掌握多级别风险控制方法与资金管理节奏，确保长期稳定参与市场。',
 
     // Why Choose Section
         // Founder Intro / 发起人自述
