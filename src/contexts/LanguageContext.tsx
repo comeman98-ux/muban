@@ -344,7 +344,7 @@ const translations: Record<Language, Record<string, string>> = {
     'donate.how.step1.title': '完成心理测评',
     'donate.how.step1.desc': '首先完成心理测评，确保您具备成为职业交易员的心理素质',
     'donate.how.step2.title': '发送邮件申请',
-    'donate.how.step2.desc': '邮件至 x.stark.dylan@gmail.com，说明您的意向',
+    'donate.how.step2.desc': '邮件至 fulizhe90@gmail.com，说明您的意向',
     'donate.how.step3.title': '获取捐赠地址',
     'donate.how.step3.desc': '我们将通过邮件回复您具体的 USDT/USDC 捐赠地址',
     'donate.how.step4.title': '完成捐赠并开始培训',
@@ -416,14 +416,14 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Email Contact Modal
     'email.default.title': '外汇交易员面试',
-    'email.subject': '外汇交易员沟通',
+    'email.subject': '交易员训练计划沟通',
     'email.description': '请发送您的简历到以下邮箱,我们会尽快与您联系：',
     'email.address.label': '邮箱地址：',
     'email.copy': '复制',
     'email.copied': '邮箱地址已复制到剪贴板',
     'email.subject.label': '邮件主题：',
     'email.tip': '提示：',
-    'email.tip.text': '请在邮件中包含您的基本信息、教育背景、以及为什么想成为外汇交易员。',
+    'email.tip.text': '请在邮件中包含您的基本信息、教育背景',
     'email.send': '打开邮件客户端',
     'email.close': '关闭',
 

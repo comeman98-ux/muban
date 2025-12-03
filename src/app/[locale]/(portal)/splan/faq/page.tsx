@@ -25,70 +25,70 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
     return {
       course: [
         {
-          question: '什么是 富利者 交易员训练计划？',
-          answer: '我们是一个专注于筛选和培养顶尖交易员的专业培训平台。我们致力于用最短的时间从大量人群中筛选出少数适合做交易的人才并进行培养。我们将在<strong> 30个工作日</strong>内判断新人是否是做交易的可塑之才。通过考核者将获得资金支持，成为独立交易员或基金经理。'
+          question: '科学训练计划是什么？',
+          answer: '我们是一个专注于筛选和培养顶尖交易员的专业平台。我们致力于用最科学的训练方式，从大量人群中筛选出少数适合做交易的人才并进行培养。我们将在<strong> 30个工作日</strong>内判断新人是否是做交易的可塑之才。通过考核者将获得资金支持，成为独立交易员或基金经理。'
         },
         {
           question: '为什么筛选如此严格？',
           answer: '我们的理念是<strong>培养真正适合的人，留下极少数，劝返大多数</strong>。在交易的世界里，有些人天生不适合。我们用严格的筛选机制确保只有真正适合的人才能进入。这不是贬低，而是对每个人负责——不让不适合的人在二级市场上成为韭菜。'
         },
         {
-          question: '30个工作日会学习什么？',
-          answer: '<strong>第1-5天</strong>：完成进场点练习，熟悉交易系统基本规则和风控意识<br/><strong>第5-20天</strong>：按照盈利考核标准进行练习，逐渐形成自己的量化策略和交易计划<br/><strong>第20-40天</strong>：小额实盘训练（如通过盈利考核）<br/>软件到期前不能完成考核，将被劝退。'
+          question: '45天（30个工作日）会学习什么？',
+          answer: '<strong>Day 1：</strong>：准备阶段———熟悉训练期间必要的软件系统，了解交易基础操作，执行科学训练体系<br/><strong>Week 1</strong>：熟练交易系统——按照训练要求的标准进行每日实战练习，逐渐建立正确的交易认知<br/><strong>WEEK 2 & 4</strong>：知行合一 ——经过科学训练体系后，整体交易框架形成，量化习惯的操作，完善操作手册<br/>Week 5 & 6：完成10个交易日考核，证明自己具备稳定盈利能力，准备进入预备交易员阶段'
         },
         {
           question: '为什么只有一次机会？',
-          answer: '因为交易就像做手术，务必严肃，容不得任何不遵守规则的人。一旦开始职业交易训练，会投入大量精力和时间去培养。每个人的时间和精力都很宝贵，我们需要确保双方的投入都是值得的。<strong>匹配度决定一切。</strong>'
+          answer: '因为交易就像做手术，务必严肃，容不得任何不遵守规则的人。我们的理念是培养真正适合的人，留下极少数，劝返大多数。交易不是兴趣爱好，而是高风险职业。我们希望每个人都能诚实面对自己，认清是否适合这条路。给合适的人提供机会，拒绝不合适的人，是对每个人负责的表现。<strong>态度决定一切。</strong>'
         },
         {
           question: '通过考核的概率有多大？',
-          answer: '根据历史数据，通过考核的概率<strong> &lt; 18%</strong>。但对你而言，要么是1%，要么是99%。这取决于你是否真正适合做交易，是否严格遵守纪律，是否能承受压力并保持情绪稳定。'
+          answer: '根据历史数据，通过考核的概率<strong> &lt; 35%</strong>。但对你而言，要么是1%，要么是99%。这取决于你是否真正适合做交易，是否严格遵守纪律，是否能在接受训练体系后，保持平和心态对待每一笔交易'
         }
       ],
       learning: [
         {
-          question: '培训是免费的吗？',
-          answer: '是的，培训过程不收取学费。但你需要付出的是<strong>时间和精力</strong>。免费的往往是最"贵"的——一旦被选中进入培训，需要全身心投入。真正能坚持下来的人虽然不会为金钱所累，但的确"任重道远"。'
+          question: '训练期间怎么提问或求助？',
+          answer: '可以直接开麦或私信与教练沟通。其他时间可以通过微信/在线会议室与教练联系。但请注意：学员之间不得加微信、电话等联系方式，这是纪律红线。'
         },
         {
-          question: '需要什么样的基础条件？',
+          question: '报名需要什么样的条件？',
           answer: '<ul><li>大专学历以上，35岁以下</li><li>认真、细心、耐心、心理健康，有韧性</li><li>连续30个工作日可投入</li><li>Windows电脑，独立的交易环境</li><li>周一到周五，每天最低保证 13:00 - 22:00 在线</li><li>北京时间22:30参加教练会议室复盘</li></ul>'
         },
         {
-          question: '3天不能完成规则考核会怎样？',
-          answer: '3天不能完成规则考核，将<strong>酌情劝退处理</strong>。我们的筛选机制非常严格，如果连基本规则都无法快速掌握，说明可能不适合这个行业。这是为了保护你，避免浪费更多时间。'
+          question: '不按照纪律执行会怎么样？',
+          answer: '如果不按照训练体系执行，有自己的交易想法参杂，将<strong>酌情劝退处理</strong>'
         },
         {
           question: '通过考核后可以获得什么？',
-          answer: '通过考核后，我们会为你分配资金：<ul><li><strong>小额实盘</strong>：20美金仓位，配资100美金</li><li><strong>大额实盘</strong>：根据小额实盘表现设定</li><li><strong>分润比例</strong>：60%-90%+（随能力提升而提高）</li><li><strong>完全自由</strong>：不受时间空间限制，可以在世界任何角落工作</li></ul>'
+          answer: '通过考核后，你将解锁预备交易员权益。包括使用卫星系统AI 辅助交易、加入矩阵化团队作战、获得团队资金支持等等，正式开启你的交易员或基金经理之路。'
         },
         {
-          question: '学习过程中可以提问吗？',
-          answer: '可以。每天北京时间22:30有教练会议室复盘，可以直接在会议中与教练沟通。其他时间可以通过微信或其他通讯软件联系。但请注意：<strong>学员之间不得加微信、电话等联系方式</strong>，这是纪律红线。'
+          question: '能兼职或边工作边训练吗？',
+          answer: '不可以，训练营要求连续 30 个工作日，周一到周五每天最低保证 13:00 - 21:30 在线。这是一项严肃且精细化的技能，需要全职投入的筛选和培养过程。如果无法保证时间投入，建议不要申请，因为这会浪费双方的时间。如果确实想在这个市场发展，可以考虑成为捐赠会员，详情请看捐赠页面。'
         }
       ],
       pricing: [
         {
-          question: '关于收入、社保、底薪和薪资结构',
-          answer: '任何盈利导向的企业，都不会做亏本买卖。在我们这个极简行业，所有价值都源于二级市场的买卖差价——简单、直接、残酷。<strong>在你证明盈利能力（通过考核）之前，我们不会投入一分钱。</strong>考核通过后，你的实际收入，绝不会超过你在"战场"（二级市场）上缴获的"战利品"。'
+          question: '98元的费用具体会用在哪',
+          answer: '我们全部投入团队建设：教练指导、全球卫星系统（AI辅助交易）、系统账号、心理测评、矩阵搭建。我们不靠报名费盈利，98 元只是为了筛选出真正有诚意的学员，而不是走马观花，随意下决定的人'
         },
         {
-          question: '通过考核后的收入分配如何？',
-          answer: '你在战场获得的战利品，<strong>至少 60% 属于你个人</strong>，随着你的能力提升，这个比例也会随之提高，<strong>至高可达 90% 以上</strong>。剩下的属于我们，所以我们会用心培养每一位准交易员——你战场战利品多，我们战利品也才会多，我们是一条船上的战友，荣辱与共！'
+          question: '巅峰通道适合谁？',
+          answer: '巅峰通道适合极少数需要面对面交流、对纪律要求更高的人群，费用较高且名额有限'
         },
         {
           question: '小额实盘的风控要求是什么？',
           answer: '小额实盘<strong>只有一次机会</strong>，请珍惜：<ul><li>日回撤不超过 20%</li><li>周总回撤不得超过 30%</li><li>超过回撤要求即视为失败，劝退</li></ul>这是硬性规定，目的是培养你的风险管理能力。'
         },
         {
-          question: '为什么不需要付学费？',
-          answer: '跟传统学科不同，不需要你付出数万美金的"学费"，毕竟这是一个钱生钱的行当。我们的模式是：我们培养你，你通过后我们分享你的战果。这是一种<strong>合作共赢</strong>的关系，而非雇佣关系。你是一个独立的创业者，独立的个体。'
+          question: '如果小额实盘亏损失败，需要赔偿吗？',
+          answer: '不需要，这是每位预备交易员应得的机会。每个心智成熟的人，都不会在技术水平还未成熟的前提下贸然申请'
         }
       ],
       support: [
         {
           question: '什么是交易铁律？',
-          answer: '交易纪律就像法律法规，触碰一次就会被标上不信任的标签。<strong>一旦触碰，就再也无法进入矩阵团队；第二次触碰红线，直接劝退离开团队。</strong>交易就像做手术，务必严肃，容不得任何不遵守规则的人。'
+          answer: '交易纪律就像法律法规，触碰一次就会被标上不信任的标签。<strong>一旦触碰，就再也无法进入矩阵团队；第二次触碰红线，直接劝退离开团队，严重者将被永久列入黑名单，禁止再次申请训练营</strong>，交易就像做手术，务必严肃，容不得任何不遵守规则的人'
         },
         {
           question: '交易规则红线有哪些？',
@@ -96,11 +96,15 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
         },
         {
           question: '会议纪律红线有哪些？',
-          answer: '<ul><li><strong>学员之间不得加微信、电话等联系方式</strong></li><li>会议室内保持严肃，不得谈论除交易外其他话题</li></ul>违反以上任何一条，都将被视为触碰红线。'
+          answer: '<ul><li><strong>学员之间不得加微信、电话等联系方式</strong></li><li>会议室内保持严肃，不得谈论除交易外其他话题，迟到/请假必须提前报备</li></ul>违反以上任何一条，都将被视为触碰红线'
         },
         {
-          question: '如果不适合做交易会怎样？',
-          answer: '如果在30个工作日内，我们判断你不适合做交易，会如实告知，并<strong>劝诫其此生不要踏足二级市场</strong>。这不是侮辱，而是保护。不适合的人进入二级市场，最终只会成为韭菜，亏损累累。我们帮你避免这个结局。'
+          question: '矩阵怎么加入？又是怎么运作的？',
+          answer: '首先加入矩阵需要交易员必须是具备长期、稳定、持续、盈利能力，然后矩阵交易员们组成利益共同体。再由这些盈利的交易员共同构建成矩阵，抵抗回撤，风险对冲，实现稳定复利'
+        },
+        {
+          question: '卫星系统是什么？AI天气晴雨表：TradingView 版又是什么？',
+          answer: '卫星系统是基于AI 算法下的策略信号系统，可覆盖多品种全周期。交易员可选择其擅长的信号策略，在纪律框架内执行，而AI天气晴雨表则覆盖了全球二级市场的各个品种，适合对于大方向判断有需求的交易员使用'
         }
       ],
       other: [
@@ -113,11 +117,11 @@ const getFAQData = (language: 'zh' | 'en'): FAQData => {
           answer: '<strong>交易存在较高风险</strong>，可能导致本金损失。市场波动、杠杆使用、情绪化决策等都可能带来亏损。我们会系统教授风险管理知识，但请务必记住：<strong>交易有风险，投资需谨慎</strong>，不要投入超过您承受能力的资金。'
         },
         {
-          question: '我可以一边工作一边参加培训吗？',
-          answer: '不可以。培训要求<strong>连续30个工作日</strong>，周一到周五每天最低保证 13:00 - 22:00 在线。这是全职投入的筛选和培养过程。如果无法保证时间投入，建议不要申请，因为这会浪费双方的时间。'
+          question: '超过年龄还能开始吗？',
+          answer: '你可能不再适合做交易员，不过，你可以考虑做更有意义的事，比如成为捐赠会员跟团队一起发展，或者成立工作室利用你的影响力，资源等等培养更多的年轻人，我们对于优秀的成功人士同样提供合作方式，同样可在邮件中联系详谈'
         },
         {
-          question: '通过考核后还需要每天在线吗？',
+          question: '成为正式交易员还需要每天在线吗？',
           answer: '不需要。通过考核进入大额矩阵后，你将拥有<strong>完全自由的工作时间</strong>，每天不限制交易量，只需保证每日不亏的底线即可。你可以在阿尔卑斯山滑雪，夏威夷游泳或北海道发呆……金钱会源源不断地自动流入你的口袋。'
         }
       ]
@@ -233,25 +237,25 @@ const FAQItem = ({ faq, isOpen, onClick }: { faq: FAQ; isOpen: boolean; onClick:
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`bg-white dark:bg-gray-800 border-2 overflow-hidden transition-all ${
-        isOpen ? 'border-black dark:border-white shadow-lg' : 'border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500'
+      className={`bg-black border-2 overflow-hidden transition-all ${
+        isOpen ? 'border-white shadow-lg' : 'border-gray-700 hover:border-gray-500'
       }`}
     >
       <button
         onClick={onClick}
         className={`w-full flex items-center justify-between p-6 text-left transition-all ${
-          isOpen ? 'bg-gray-50 dark:bg-gray-900' : 'hover:bg-gray-50 dark:hover:bg-gray-900'
+          isOpen ? 'bg-black' : 'hover:bg-gray-900'
         }`}
       >
-        <span className="flex-1 pr-4 font-bold text-lg text-gray-900 dark:text-white">{faq.question}</span>
+        <span className="flex-1 pr-4 font-bold text-lg text-white">{faq.question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className={`flex-shrink-0 w-8 h-8 flex items-center justify-center ${
-            isOpen ? 'bg-black dark:bg-white' : 'bg-gray-200 dark:bg-gray-700'
+            isOpen ? 'bg-white' : 'bg-gray-700'
           }`}
         >
-          <span className={`text-lg font-bold ${isOpen ? 'text-white dark:text-black' : 'text-gray-600 dark:text-gray-400'}`}>
+          <span className={`text-lg font-bold ${isOpen ? 'text-black' : 'text-gray-300'}`}>
             ▼
           </span>
         </motion.div>
@@ -266,7 +270,7 @@ const FAQItem = ({ faq, isOpen, onClick }: { faq: FAQ; isOpen: boolean; onClick:
             className="overflow-hidden"
           >
             <div
-              className="px-6 pb-6 pt-2 text-gray-700 dark:text-gray-300 text-base leading-relaxed border-t-2 border-gray-100 dark:border-gray-700"
+              className="px-6 pb-6 pt-2 text-gray-300 text-base leading-relaxed border-t-2 border-gray-700"
               dangerouslySetInnerHTML={{ __html: faq.answer }}
             />
           </motion.div>
@@ -306,7 +310,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black border-b-2 border-gray-800">
         <div className="absolute inset-0 opacity-10">
@@ -342,7 +346,7 @@ export default function FAQPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('faq.search.placeholder')}
-              className="w-full px-6 py-5 pr-32 text-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:border-black dark:focus:border-white transition-all"
+              className="w-full px-6 py-5 pr-32 text-lg border-2 border-gray-600 bg-black text-white placeholder:text-gray-500 focus:outline-none focus:border-white transition-all"
             />
             <div className="absolute right-2 top-1/2 -translate-y-1/2">
               <span className="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold text-sm">
@@ -356,7 +360,7 @@ export default function FAQPage() {
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-1 h-12 bg-black dark:bg-white"></div>
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white">{t('faq.category.course')}</h2>
+            <h2 className="text-3xl font-black text-white">{t('faq.category.course')}</h2>
             <span className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold">
               {filterFAQs(faqData.course).length}
             </span>
@@ -377,7 +381,7 @@ export default function FAQPage() {
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-1 h-12 bg-black dark:bg-white"></div>
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white">{t('faq.category.learning')}</h2>
+            <h2 className="text-3xl font-black text-white">{t('faq.category.learning')}</h2>
             <span className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold">
               {filterFAQs(faqData.learning).length}
             </span>
@@ -398,7 +402,7 @@ export default function FAQPage() {
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-1 h-12 bg-black dark:bg-white"></div>
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white">{t('faq.category.pricing')}</h2>
+            <h2 className="text-3xl font-black text-white">{t('faq.category.pricing')}</h2>
             <span className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold">
               {filterFAQs(faqData.pricing).length}
             </span>
@@ -419,7 +423,7 @@ export default function FAQPage() {
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-1 h-12 bg-black dark:bg-white"></div>
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white">{t('faq.category.support')}</h2>
+            <h2 className="text-3xl font-black text-white">{t('faq.category.support')}</h2>
             <span className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold">
               {filterFAQs(faqData.support).length}
             </span>
@@ -440,7 +444,7 @@ export default function FAQPage() {
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-1 h-12 bg-black dark:bg-white"></div>
-            <h2 className="text-3xl font-black text-gray-900 dark:text-white">{t('faq.category.other')}</h2>
+            <h2 className="text-3xl font-black text-white">{t('faq.category.other')}</h2>
             <span className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold">
               {filterFAQs(faqData.other).length}
             </span>
