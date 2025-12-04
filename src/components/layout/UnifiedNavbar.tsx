@@ -67,6 +67,10 @@ export default function UnifiedNavbar() {
       name: t('nav.membership'),
       link: "/splan/donate",
     },
+    {
+      name: language === 'zh' ? 'AI 晴雨表' : 'AI Barometer',
+      link: "/ai-barometer",
+    },
   ];
 
   useEffect(() => {

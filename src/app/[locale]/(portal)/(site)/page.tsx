@@ -631,7 +631,6 @@ const DummyContent = () => {
           </div>
         </section>
 
-
       {/* 学员展示 - 收益滚动 */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-4xl font-bold text-center mb-4 text-black dark:text-white border-b-4 border-black dark:border-white inline-block pb-2 w-full">
