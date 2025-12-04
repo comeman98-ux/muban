@@ -1011,14 +1011,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
-  // Get initial language from URL (works on both server and client)
-  const getInitialLanguage = (): Language => {
-    // Always use URL as source of truth
-    const locale = pathname.split('/')[1];
-    return locale === 'en' ? 'en' : 'zh';
-  };
-
-  const [language, setLanguage] = useState<Language>(getInitialLanguage());
+  // 固定使用中文作为当前语言
+  const [language, setLanguage] = useState<Language>('zh');
 
   useEffect(() => {
     setMounted(true);
@@ -1032,39 +1026,20 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, [language]);
 
-  // Update language when pathname changes
+  // 路由变化时，如果是 /en 开头，立即重定向到 /zh 版本
   useEffect(() => {
-    const locale = pathname.split('/')[1];
-    const pathLang: Language = locale === 'en' ? 'en' : 'zh';
-
-    // If URL language differs from current state, update both state and localStorage
-    if (pathLang !== language) {
-      setLanguage(pathLang);
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('language', pathLang);
-      }
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments[0] === "en") {
+      const rest = segments.slice(1).join("/");
+      const target = rest ? `/zh/${rest}` : "/zh";
+      router.replace(target);
     }
-  }, [pathname, language]);
+  }, [pathname, router]);
 
+  // 语言切换在单语环境下不再生效，但为了兼容现有代码，保留函数签名
   const toggleLanguage = () => {
-    const newLanguage = language === 'zh' ? 'en' : 'zh';
-
-    // Update localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', newLanguage);
-    }
-
-    // Update state
-    setLanguage(newLanguage);
-
-    // Get current path without locale prefix
-    const pathSegments = pathname.split('/').filter(Boolean);
-    const currentLocale = pathSegments[0] === 'en' || pathSegments[0] === 'zh' ? pathSegments[0] : 'zh';
-    const pathWithoutLocale = pathSegments.slice(currentLocale === pathSegments[0] ? 1 : 0).join('/');
-
-    // Navigate to new locale
-    const newPath = `/${newLanguage}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
-    router.push(newPath);
+    // 始终保持中文，不做任何操作
+    return;
   };
 
   const t = (key: string): string => {
