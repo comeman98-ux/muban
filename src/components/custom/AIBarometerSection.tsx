@@ -1,13 +1,15 @@
 ﻿"use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 export default function AIBarometerSection() {
   const { language } = useLanguage();
   const isZh = language === "zh";
 
+  const router = useRouter();
   const [isSubscribeModalOpen, setIsSubscribeModalOpen] = useState(false);
+
 
   const featureGroups = isZh
     ? [
@@ -337,7 +339,7 @@ export default function AIBarometerSection() {
                 <button
                   type="button"
                   className="w-full sm:w-auto px-6 py-3 bg-black text-white font-bold text-sm rounded-full hover:bg-gray-900"
-                  onClick={() => setIsSubscribeModalOpen(true)}
+                  onClick={() => router.push(`/${language}/splan/join-us`)}
                 >
                   {isZh
                     ? "98 元加入训练营（赠送 AI 晴雨表使用权）"
@@ -418,28 +420,24 @@ export default function AIBarometerSection() {
                 </p>
                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                   {isZh
-                    ? "可包含内容（可选）：TradingView 用户名、订阅时长、主要市场、交易经验等信息"
+                    ? "内容只需包含：TradingView 用户名"
                     : "Optional details: your TradingView username, desired subscription period, main markets and trading experience."}
                 </p>
               </div>
 
               <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 {isZh
-                  ? "我们将在 24 小时内回复你，提供开通说明和支付方式"
+                  ? "想订阅的时长（1 月 / 3 月 / 6 月 / 12 月）"
                   : "We will reply within 24 hours with activation instructions and payment options."}
               </p>
 
               <div className="pt-3 border-t border-gray-200 dark:border-gray-800 space-y-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">
                 <p>
                   {isZh
-                    ? "内含专属使用指南、TradingView 添加流程与快速上手教程"
+                    ? "我们将在 24 小时内回复你"
                     : "Includes usage guide, TradingView setup steps and quick‑start tutorials."}
                 </p>
-                <p>
-                  {isZh
-                    ? "💡 备注：提交申请不代表自动扣费，我们将先沟通后再开通权限"
-                    : "💡 Note: Submitting a request does not trigger automatic billing; we will confirm details with you before activation."}
-                </p>
+              
               </div>
             </div>
 
@@ -458,4 +456,7 @@ export default function AIBarometerSection() {
     </section>
   );
 }
+
+
+
 
