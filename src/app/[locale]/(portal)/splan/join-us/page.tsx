@@ -200,7 +200,7 @@ export default function JoinUsPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-2">
               {isZh
-                ? "45 天（30 个交易日）线上军规训练"
+                ? "45 天（30 个交易日）线上科学训练"
                 : "45 Days · 30 Trading Sessions Online Boot Camp"}
             </h2>
             <p className="text-sm md:text-base text-center text-gray-300 mb-8">
@@ -243,7 +243,7 @@ export default function JoinUsPage() {
                       {isZh ? "WEEK 1 · 阶段一" : "WEEK 1 · Stage 1"}
                     </p>
                     <h3 className="text-xl font-bold mb-1">
-                      {isZh ? "思维钢印" : "Mindset & Framework"}
+                      {isZh ? "交易框架" : "Mindset & Framework"}
                     </h3>
                     <p className="text-sm text-gray-300">
                       {isZh
@@ -291,7 +291,7 @@ export default function JoinUsPage() {
                       {isZh ? "WEEK 3+ · 阶段三" : "WEEK 3+ · Stage 3"}
                     </p>
                     <h3 className="text-xl font-bold mb-1">
-                      {isZh ? "连续考核" : "Consistent Evaluation"}
+                      {isZh ? "考核阶段" : "Consistent Evaluation"}
                     </h3>
                     <p className="text-sm text-gray-300">
                       {isZh
