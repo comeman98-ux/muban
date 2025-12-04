@@ -31,7 +31,7 @@ export default function SystemLoginPage() {
         return;
       }
 
-      router.push("/system");
+      router.push("/zh/system");
     } catch {
       setError(t("system.login.error"));
     } finally {
