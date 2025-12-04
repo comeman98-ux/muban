@@ -14,7 +14,7 @@ export default function AIBarometerSection() {
         {
           icon: "☀️",
           title: "AI 市场气候识别",
-          items: ["晴 / 阴 / 雨 / 暴风雨情绪等级", "周期强弱分析"],
+          items: ["晴 / 阴 / 雨 / 暴风雨 情绪等级", "周期强弱分析"],
         },
         {
           icon: "📈",
@@ -63,10 +63,10 @@ export default function AIBarometerSection() {
 
   const pricing = isZh
     ? [
-        { label: "月度版", price: "$99 / 月", recommended: false },
-        { label: "季度版", price: "$269 / 3 月", recommended: true },
-        { label: "半年版", price: "$509 / 6 月", recommended: false },
-        { label: "年度版", price: "$999 / 年", recommended: false },
+        { label: "月度版", price: "$99/月", recommended: false },
+        { label: "季度版", price: "$269/3月", recommended: true },
+        { label: "半年版", price: "$509/6月", recommended: false },
+        { label: "年度版", price: "$999/年", recommended: false },
       ]
     : [
         { label: "Monthly", price: "$99 / month", recommended: false },
@@ -96,102 +96,264 @@ export default function AIBarometerSection() {
           </h2>
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
             {isZh
-              ? "让你的交易从『凭感觉』变成『有依据』。"
+              ? "让你的交易从“靠感觉”变成“有依据”"
               : "Turn trading from pure feeling into evidence‑based decisions."}
           </p>
         </div>
 
-        {/* 上半部分：图表 + 功能 */}
+        {/* 上半部分：左右双栏 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-          {/* 左侧：TradingView 图表占位 */}
+          {/* 左侧：TradingView 图表示意 */}
           <div className="flex flex-col gap-3">
             <div className="bg-gray-100 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-3xl p-4 flex items-center justify-center">
               <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden bg-black">
                 <div className="w-full h-full flex items-center justify-center text-xs md:text-sm text-gray-400">
                   {isZh
-                    ? "TradingView 实时图表嵌入区域（待替换为真实 Chart 代码）"
+                    ? "TradingView 实时图表嵌入区域（待替换为实际 Chart 代码）"
                     : "TradingView live chart embed placeholder (replace with real chart code)."}
                 </div>
               </div>
             </div>
             <p className="text-[11px] md:text-xs leading-relaxed text-gray-500 dark:text-gray-400 text-left md:text-center whitespace-pre-line">
               {isZh
-                ? "示例：黄金（XAUUSD）· 1 小时周期\n图中展示：AI 趋势箭头、多空带、风险区间\n数据与 TradingView 实时同步"
-                : "Example: Gold (XAUUSD) · 1‑hour timeframe\nVisuals: AI trend arrows, long/short bands, risk zones\nData stays in sync with TradingView in real time."}
+                ? "当前示例：黄金（XAUUSD） · 1小时周期\n图中展示：AI 趋势箭头、多空气候带、风险区域\n数据实时同步 TradingView"
+                : "Example shown: Gold (XAUUSD) · 1‑hour timeframe\nVisuals: AI trend arrows, long/short climate bands, risk zones\nData stays in sync with TradingView in real time."}
             </p>
           </div>
 
-          {/* 右侧：功能卡片 */}
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {featureGroups.map((group) => (
-                <div
-                  key={group.title}
-                  className="border border-gray-200 dark:border-gray-800 rounded-2xl p-4 bg-white/60 dark:bg-black/40 backdrop-blur-sm"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xl">{group.icon}</span>
-                    <h3 className="text-sm font-bold">{group.title}</h3>
+          {/* 右侧：核心功能 */}
+          <div className="flex flex-col h-full">
+            <div className="mt-6 mb-12">
+              <h3 className="text-lg font-bold mb-4">
+                {isZh ? "核心功能" : "Key Capabilities"}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm md:text-base">
+                {featureGroups.map((group) => (
+                  <div
+                    key={group.title}
+                    className="flex flex-col gap-2 rounded-3xl border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900 px-5 py-4 shadow-sm shadow-gray-200/80 dark:shadow-black/40"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg">{group.icon}</span>
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {group.title}
+                      </p>
+                    </div>
+                    <ul className="space-y-1 text-gray-700 dark:text-gray-300">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-black dark:bg-white flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="text-xs md:text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                    {group.items.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* 订阅按钮 */}
-            <div className="mt-2 flex flex-col sm:flex-row gap-3">
-              <button
-                type="button"
-                onClick={() => setIsSubscribeModalOpen(true)}
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-black text-white text-sm font-bold hover:bg-gray-900"
-              >
-                {isZh ? "立即申请订阅 AI 市场晴雨表" : "Request AI Barometer Subscription"}
-              </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 订阅方案 */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          <h3 className="text-lg font-bold mb-3">
-            {isZh ? "订阅方案" : "Subscription Plans"}
-          </h3>
-          <p className="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-            {isZh
-              ? "支持所有 TradingView 账户类型，订阅期间内可不限次数使用 AI 市场晴雨表™ 指标。"
-              : "Works with all TradingView accounts. Use the AI Market Barometer™ indicator freely during your subscription."}
-          </p>
+        {/* 下半部分：全宽布局 */}
+        <div className="mt-16 w-full">
+          {/* 原理说明 */}
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-lg font-bold mb-3">
+              {isZh ? "AI 晴雨表的原理" : "How the AI Barometer Works"}
+            </h3>
+            <p className="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-line">
+              {isZh
+                ? "AI 市场晴雨表™ 基于价格结构、周期强弱、趋势斜率、波动率以及多维情绪等等多方判断与信号，通过大量数据和独家技术训练后的模型对当前市场环境进行实时分类。\n\n它不会预测未来，而是明确告诉你当前市场处于晴、阴、雨、暴风雨中的哪一种状态，从而帮助你做出更稳健的进出场决策。"
+                : "The AI Market Barometer™ classifies the current market in real time using price structure, timeframe strength, trend slope, volatility and multi‑dimensional sentiment signals, powered by models trained on large datasets and proprietary techniques.\n\nIt does not try to predict the future — instead it tells you whether the current market is in a “clear”, “cloudy”, “rainy” or “storm” regime so you can make more robust entries and exits."}
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {pricing.map((plan) => (
-              <div
-                key={plan.label}
-                className={`border rounded-2xl p-4 text-center ${
-                  plan.recommended
-                    ? "border-blue-600 bg-blue-50 dark:bg-blue-900/20"
-                    : "border-gray-200 dark:border-gray-800"
-                }`}
-              >
-                <p className="text-sm font-semibold mb-1">{plan.label}</p>
-                <p className="text-base md:text-lg font-bold mb-3">{plan.price}</p>
-                {plan.recommended && (
-                  <p className="text-[11px] text-blue-600 dark:text-blue-300 mb-2">
-                    {isZh ? "推荐" : "Recommended"}
-                  </p>
-                )}
+          {/* 订阅方案 + 对比表 */}
+          <div className="mt-12 max-w-5xl mx-auto">
+            <div className="border-t border-gray-200 dark:border-gray-800 pt-8" />
+            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-2">
+              {isZh
+                ? "全球交易员都在使用的 AI 市场情绪工具（支持 TradingView Web & App）"
+                : "AI market sentiment tool trusted by traders worldwide (supports TradingView Web & App)."}
+            </p>
+            <h3 className="text-lg font-bold mb-1">
+              {isZh ? "订阅方案" : "Subscription Plans"}
+            </h3>
+            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-3">
+              {isZh
+                ? "全球发行 · 官方标准定价"
+                : "Global release · Official standard pricing"}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-6">
+              {pricing.map((plan) => (
+                <div
+                  key={plan.label}
+                  className={`rounded-2xl border px-4 py-5 flex flex-col items-stretch transition-transform ${
+                    plan.recommended
+                      ? "border-black bg-black text-white dark:border-white dark:bg-white dark:text-black shadow-xl shadow-black/30 dark:shadow-white/30 scale-[1.02]"
+                      : "border-gray-200 bg-white text-black dark:border-gray-800 dark:bg-gray-900 dark:text-white shadow-sm shadow-gray-200/80 dark:shadow-black/40"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-sm font-semibold">{plan.label}</p>
+                    {plan.recommended && (
+                      <span className="text-xs px-2 py-1 rounded-full border border-current uppercase tracking-wide">
+                        {isZh ? "推荐" : "Best"}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xl font-black mb-4">{plan.price}</p>
+                  <button
+                    type="button"
+                    className="mt-auto w-full px-4 py-2.5 text-sm font-bold bg-black text-white dark:bg-black dark:text-white hover:bg-gray-900 disabled:opacity-60 rounded-full"
+                    onClick={() => setIsSubscribeModalOpen(true)}
+                  >
+                    {isZh ? "立即订阅" : "Subscribe Now"}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* 功能对比表 */}
+            <div className="mt-6 overflow-x-auto">
+              <table className="min-w-full text-xs md:text-sm border-separate border-spacing-y-1">
+                <thead>
+                  <tr className="bg-black text-white dark:bg-gray-900">
+                    <th className="text-left px-3 py-2 font-semibold">
+                      {isZh ? "功能" : "Feature"}
+                    </th>
+                    <th className="px-3 py-2 font-semibold">
+                      {isZh ? "月度版" : "Monthly"}
+                    </th>
+                    <th className="px-3 py-2 font-semibold">
+                      {isZh ? "季度版（推荐）" : "Quarterly (Recommended)"}
+                    </th>
+                    <th className="px-3 py-2 font-semibold">
+                      {isZh ? "半年版" : "Half‑Year"}
+                    </th>
+                    <th className="px-3 py-2 font-semibold">
+                      {isZh ? "年度版" : "Annual"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-gray-950 text-gray-100 divide-y divide-gray-900/80">
+                  {[
+                    isZh ? "AI 趋势信号" : "AI trend signals",
+                    isZh ? "市场气候识别" : "Market climate detection",
+                    isZh ? "多周期支持" : "Multi‑timeframe support",
+                    isZh ? "新功能更新" : "New feature updates",
+                    isZh ? "优先客服支持" : "Priority support",
+                  ].map((rowLabel, rowIndex) => (
+                    <tr
+                      key={rowLabel}
+                      className="odd:bg-gray-950 even:bg-gray-900/40"
+                    >
+                      <td className="px-3 py-2 text-left">{rowLabel}</td>
+                      {[0, 1, 2, 3].map((col) => {
+                        const enabled =
+                          rowIndex <= 3 || (rowIndex === 4 && col >= 1);
+                        return (
+                          <td
+                            key={col}
+                            className="px-3 py-2 text-center align-middle"
+                          >
+                            {enabled ? (
+                              <span className="text-purple-400 text-base leading-none">
+                                ✓
+                              </span>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                  <tr className="odd:bg-gray-950 even:bg-gray-900/40">
+                    <td className="px-3 py-2 text-left">
+                      {isZh ? "节省金额" : "Savings"}
+                    </td>
+                    <td className="px-3 py-2 text-center text-gray-500">-</td>
+                    <td className="px-3 py-2 text-center text-purple-300">
+                      {isZh ? "省 $28" : "Save $28"}
+                    </td>
+                    <td className="px-3 py-2 text-center text-purple-300">
+                      {isZh ? "省 $85" : "Save $85"}
+                    </td>
+                    <td className="px-3 py-2 text-center text-purple-300">
+                      {isZh ? "省 $189" : "Save $189"}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-4 space-y-1 text-xs md:text-sm text-gray-500 dark:text-gray-400 text-center">
+              <p>
+                {isZh
+                  ? "所有订阅均包含未来功能更新"
+                  : "All subscriptions include future feature updates."}
+              </p>
+              <p>
+                {isZh
+                  ? "支持 TradingView Web / App 全端使用"
+                  : "Works with TradingView Web / App across devices."}
+              </p>
+            </div>
+          </div>
+
+          {/* 训练营联动区 */}
+          <div className="mt-12 max-w-5xl mx-auto">
+            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-4">
+              {isZh
+                ? "如果你还没有成熟的交易系统，你会更适合训练营（赠送晴雨表）"
+                : "If you don’t yet have a mature trading system, the bootcamp (with the Barometer included) is likely a better fit for you."}
+            </p>
+            <div className="border-t border-gray-200 dark:border-gray-800 mb-6" />
+            <div className="border border-gray-200 dark:border-gray-800 rounded-[32px] p-6 md:p-7 bg-gray-200 dark:bg-black">
+              <h3 className="text-lg md:text-xl font-black mb-2">
+                {isZh
+                  ? "加入训练营？你将获得："
+                  : "Join the bootcamp and you get:"}
+              </h3>
+              <div className="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300 mb-6 space-y-2">
+                <p>
+                  {isZh
+                    ? "免费使用两个月（价值 $198） 的 AI 晴雨表工具。"
+                    : "Free two‑month access to the AI Barometer (worth $198)."}
+                </p>
+                <p>
+                  {isZh
+                    ? "训练营不仅教你使用晴雨表，更教你建立自己的科学交易系统。"
+                    : "The bootcamp doesn’t just teach you how to use the Barometer — it shows you how to build a scientific trading system."}
+                </p>
+                <p>
+                  {isZh
+                    ? "训练营是方法，晴雨表是工具 —— 你将同时拥有两者。"
+                    : "The bootcamp is the method, the Barometer is the tool — you get both."}
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
                 <button
                   type="button"
+                  className="w-full sm:w-auto px-6 py-3 bg-black text-white font-bold text-sm rounded-full hover:bg-gray-900"
                   onClick={() => setIsSubscribeModalOpen(true)}
-                  className="w-full mt-1 px-4 py-2 rounded-full border border-black dark:border-white text-xs font-semibold hover:bg-gray-50 dark:hover:bg-white/10"
                 >
-                  {isZh ? "通过邮箱申请此方案" : "Request via email"}
+                  {isZh
+                    ? "98 元加入训练营（赠送 AI 晴雨表使用权）"
+                    : "Join bootcamp for ¥98 (AI Barometer included)"}
+                </button>
+                <button
+                  type="button"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full border border-black text-sm font-bold text-black bg-white hover:bg-gray-100 dark:border-white dark:text-white dark:bg-transparent dark:hover:bg-white/10 sm:ml-auto"
+                  onClick={() => setIsSubscribeModalOpen(true)}
+                >
+                  {isZh
+                    ? "我只想订阅晴雨表 → 点击购买"
+                    : "Just the Barometer → Purchase"}
                 </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
@@ -210,7 +372,7 @@ export default function AIBarometerSection() {
               <h3 className="flex-1 text-lg md:text-xl font-black text-black dark:text-white leading-snug text-center">
                 {isZh
                   ? "AI 市场晴雨表™ 订阅申请"
-                  : "AI Market Barometer™ Subscription Request"}
+                  : "AI Market Barometer (TradingView Live) Subscription Request"}
               </h3>
               <button
                 type="button"
@@ -222,11 +384,11 @@ export default function AIBarometerSection() {
               </button>
             </div>
 
-            <div className="space-y-4 text-sm md:text-base text-gray-700 dark:text-gray-300 text-center">
+            <div className="space-y-4 text-sm md:text-base text-gray-700 dark:text-gray-300">
               <p>
                 {isZh
-                  ? "为了为你开通 TradingView 的专属权限，请通过邮箱与我们联系。"
-                  : "To enable your dedicated TradingView access, please contact us via email."}
+                  ? "为了为你开通 TradingView 的专属权限，请通过邮箱与我们联系："
+                  : "To enable your dedicated TradingView access, please contact us via email:"}
               </p>
 
               <div className="space-y-2">
@@ -237,9 +399,9 @@ export default function AIBarometerSection() {
                       navigator.clipboard.writeText("fulizhe90@gmail.com");
                     }
                   }}
-                  className="inline-flex w-full max-w-xs md:max-w-sm mx-auto items-center justify-center px-6 md:px-8 py-3 md:py-3.5 rounded-full bg-blue-600 text-white font-extrabold text-lg md:text-xl shadow-lg hover:bg-blue-500 transition-colors"
+                  className="inline-flex items-center justify-center px-6 md:px-8 py-3 rounded-full bg-blue-600 text-white font-bold text-base md:text-lg shadow-md hover:bg-blue-500 transition-colors"
                 >
-                  🔵 fulizhe90@gmail.com
+                  fulizhe90@gmail.com
                 </button>
                 <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                   {isZh
@@ -256,16 +418,29 @@ export default function AIBarometerSection() {
                 </p>
                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                   {isZh
-                    ? "邮件内容只需包含：TradingView 用户名；想订阅的时长（1 月 / 3 月 / 6 月 / 12 月）。"
-                    : "Email body only needs to include: your TradingView username, and desired duration (1 / 3 / 6 / 12 months)."}
+                    ? "可包含内容（可选）：TradingView 用户名、订阅时长、主要市场、交易经验等信息"
+                    : "Optional details: your TradingView username, desired subscription period, main markets and trading experience."}
                 </p>
               </div>
 
               <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 {isZh
-                  ? "我们会在 24 小时内回复你。"
-                  : "We will reply within 24 hours."}
+                  ? "我们将在 24 小时内回复你，提供开通说明和支付方式"
+                  : "We will reply within 24 hours with activation instructions and payment options."}
               </p>
+
+              <div className="pt-3 border-t border-gray-200 dark:border-gray-800 space-y-1 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                <p>
+                  {isZh
+                    ? "内含专属使用指南、TradingView 添加流程与快速上手教程"
+                    : "Includes usage guide, TradingView setup steps and quick‑start tutorials."}
+                </p>
+                <p>
+                  {isZh
+                    ? "💡 备注：提交申请不代表自动扣费，我们将先沟通后再开通权限"
+                    : "💡 Note: Submitting a request does not trigger automatic billing; we will confirm details with you before activation."}
+                </p>
+              </div>
             </div>
 
             <div className="mt-6 flex justify-center">
@@ -283,3 +458,4 @@ export default function AIBarometerSection() {
     </section>
   );
 }
+
