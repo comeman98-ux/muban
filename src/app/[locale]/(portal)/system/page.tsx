@@ -172,7 +172,7 @@ export default function InternalSystemPage() {
             </button>
             <button
               className="px-4 py-2 text-sm font-semibold rounded-md border border-gray-600 text-gray-100 hover:bg-gray-900"
-              onClick={() => router.push("/system/login")}
+              onClick={() => router.push("/zh/system/login")}
             >
               退出登录
             </button>
