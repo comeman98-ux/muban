@@ -1,8 +1,10 @@
 ﻿"use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function AIBarometerSection() {
   const { language } = useLanguage();
   const isZh = language === "zh";
@@ -103,25 +105,46 @@ export default function AIBarometerSection() {
           </p>
         </div>
 
-        {/* 上半部分：左右双栏 */}
+                {/* 上半部分：左右双栏 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-          {/* 左侧：TradingView 图表示意 */}
+          {/* 左侧：BTC 实时图表 + 晴雨表截图 */}
           <div className="flex flex-col gap-3">
-            <div className="bg-gray-100 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-3xl p-4 flex items-center justify-center">
-              <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden bg-black">
-                <div className="w-full h-full flex items-center justify-center text-xs md:text-sm text-gray-400">
-                  {isZh
-                    ? "TradingView 实时图表嵌入区域（待替换为实际 Chart 代码）"
-                    : "TradingView live chart embed placeholder (replace with real chart code)."}
+            <div className="rounded-3xl bg-black px-6 py-6 sm:px-10 sm:py-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
+              {/* 上：TradingView BTC 1 小时实时图表 */}
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black">
+                <div className="aspect-[16/9] w-full">
+                  <iframe
+                    src="https://s.tradingview.com/widgetembed/?symbol=BITSTAMP%3ABTCUSD&interval=60&hidesidetoolbar=1&hidetoptoolbar=1&theme=light"
+                    className="h-full w-full"
+                    frameBorder="0"
+                    allowTransparency
+                    scrolling="no"
+                  />
+                </div>
+              </div>
+
+              {/* 下：AI 晴雨表 BTC 截图示例 */}
+              <div className="mt-4 rounded-2xl border border-white/10 bg-black/80 p-3 backdrop-blur">
+                <p className="mb-2 text-xs text-gray-300">
+                  以下为基于 BTC 1 小时周期的 AI 市场晴雨表信号示例截图：
+                </p>
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src="/images/BTC1H.png"
+                    alt="BTC 1 小时周期 AI 晴雨表示例图"
+                    width={1200}
+                    height={630}
+                    className="h-auto w-full"
+                  />
                 </div>
               </div>
             </div>
-            <p className="text-[11px] md:text-xs leading-relaxed text-gray-500 dark:text-gray-400 text-left md:text-center whitespace-pre-line">
-              {isZh
-                ? "当前示例：黄金（XAUUSD） · 1小时周期\n图中展示：AI 趋势箭头、多空气候带、风险区域\n数据实时同步 TradingView"
-                : "Example shown: Gold (XAUUSD) · 1‑hour timeframe\nVisuals: AI trend arrows, long/short climate bands, risk zones\nData stays in sync with TradingView in real time."}
+
+            <p className="mt-3 text-center text-xs text-gray-400">
+              示例：比特币（BTCUSD） · 1 小时周期 · 图中展示：AI 趋势箭头、多空气候带、风险区域 · 数据实时同步自 TradingView
             </p>
           </div>
+
 
           {/* 右侧：核心功能 */}
           <div className="flex flex-col h-full">
@@ -152,23 +175,29 @@ export default function AIBarometerSection() {
                   </div>
                 ))}
               </div>
-            </div>
+                        </div>
+
+          <div className="mt-10">
+            <h2 className="text-2xl font-bold mb-4">
+              {isZh ? "AI 晴雨表的逻辑" : "How the AI Barometer Works"}
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              {isZh
+                ? "AI 市场晴雨表™ 基于价格结构、周期强弱、趋势斜率、波动率以及多维情绪等多方判断与信号，通过大量数据和独家技术训练后的模型对当前市场环境进行实时分类"
+                : "The AI Market Barometer™ classifies the current market in real time using price structure, timeframe strength, trend slope, volatility and multi‑dimensional sentiment signals, powered by models trained on large datasets and proprietary techniques."}
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {isZh
+                ? "它不会预测未来，而是明确告诉你当前市场处于晴、阴、雨、暴风雨中的哪一种状态，从而帮助你做出更稳健的进出场决策"
+                : "It does not try to predict the future — instead it tells you whether the market is in a clear, cloudy, rainy or storm regime so you can make more robust entries and exits."}
+            </p>
           </div>
         </div>
+      </div>
 
         {/* 下半部分：全宽布局 */}
         <div className="mt-16 w-full">
-          {/* 原理说明 */}
-          <div className="max-w-5xl mx-auto">
-            <h3 className="text-lg font-bold mb-3">
-              {isZh ? "AI 晴雨表的原理" : "How the AI Barometer Works"}
-            </h3>
-            <p className="text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-line">
-              {isZh
-                ? "AI 市场晴雨表™ 基于价格结构、周期强弱、趋势斜率、波动率以及多维情绪等等多方判断与信号，通过大量数据和独家技术训练后的模型对当前市场环境进行实时分类。\n\n它不会预测未来，而是明确告诉你当前市场处于晴、阴、雨、暴风雨中的哪一种状态，从而帮助你做出更稳健的进出场决策。"
-                : "The AI Market Barometer™ classifies the current market in real time using price structure, timeframe strength, trend slope, volatility and multi‑dimensional sentiment signals, powered by models trained on large datasets and proprietary techniques.\n\nIt does not try to predict the future — instead it tells you whether the current market is in a “clear”, “cloudy”, “rainy” or “storm” regime so you can make more robust entries and exits."}
-            </p>
-          </div>
+        
 
           {/* 订阅方案 + 对比表 */}
           <div className="mt-12 max-w-5xl mx-auto">
