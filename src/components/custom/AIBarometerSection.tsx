@@ -110,11 +110,11 @@ export default function AIBarometerSection() {
           {/* 左侧：BTC 实时图表 + 晴雨表截图 */}
           <div className="flex flex-col gap-3">
             <div className="rounded-3xl bg-black px-6 py-6 sm:px-10 sm:py-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
-              {/* 上：TradingView BTC 1 小时实时图表 */}
+              {/* 上：TradingView BTC 1 日 实时图表 */}
               <div className="relative w-full overflow-hidden rounded-2xl bg-black">
                 <div className="aspect-[16/9] w-full">
                   <iframe
-                    src="https://s.tradingview.com/widgetembed/?symbol=BITSTAMP%3ABTCUSD&interval=60&hidesidetoolbar=1&hidetoptoolbar=1&theme=light"
+                    src="https://s.tradingview.com/widgetembed/?symbol=BITSTAMP%3ABTCUSD&interval=1D&hidesidetoolbar=1&hidetoptoolbar=1&theme=light"
                     className="h-full w-full"
                     frameBorder="0"
                     allowTransparency
@@ -126,12 +126,12 @@ export default function AIBarometerSection() {
               {/* 下：AI 晴雨表 BTC 截图示例 */}
               <div className="mt-4 rounded-2xl border border-white/10 bg-black/80 p-3 backdrop-blur">
                 <p className="mb-2 text-xs text-gray-300">
-                  以下为基于 BTC 1 小时周期的 AI 市场晴雨表信号示例截图：
+                  以下为基于 BTC 1 日周期的 AI 市场晴雨表信号示例截图：
                 </p>
                 <div className="overflow-hidden rounded-xl">
                   <Image
-                    src="/images/BTC1H.png"
-                    alt="BTC 1 小时周期 AI 晴雨表示例图"
+                    src="/images/BTC1D.png"
+                    alt="BTC 1 日周期 AI 晴雨表示例图"
                     width={1200}
                     height={630}
                     className="h-auto w-full"
@@ -141,7 +141,7 @@ export default function AIBarometerSection() {
             </div>
 
             <p className="mt-3 text-center text-xs text-gray-400">
-              示例：比特币（BTCUSD） · 1 小时周期 · 图中展示：AI 趋势箭头、多空气候带、风险区域 · 数据实时同步自 TradingView
+              示例：比特币（BTCUSD） · 1 日周期 · 图中展示：AI 趋势箭头、多空气候带、风险区域 · 数据实时同步自 TradingView
             </p>
           </div>
 

@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import LocaleLink from "@/components/navigation/LocaleLink";
 
 export default function SystemLoginPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const router = useRouter();
   const [identityId, setIdentityId] = useState("");
   const [password, setPassword] = useState("");
@@ -26,12 +26,16 @@ export default function SystemLoginPage() {
         body: JSON.stringify({ identityId, password }),
       });
 
-      if (!res.ok) {
-        setError(t("system.login.error"));
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || !data?.success) {
+        setError(
+          data?.message || t("system.login.error"),
+        );
         return;
       }
 
-      router.push("/zh/system");
+      router.push(`/${language}/system`);
     } catch {
       setError(t("system.login.error"));
     } finally {

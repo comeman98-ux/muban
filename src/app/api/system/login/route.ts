@@ -1,72 +1,57 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { createClient } from "@supabase/supabase-js";
+import { createSupabaseServerClient } from "@/lib/supabaseServer";
 
 const SESSION_COOKIE_NAME = "fx_system_session";
-
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-if (!supabaseUrl || !supabaseServiceRoleKey) {
-  console.error(
-    "[system/login] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY env vars",
-  );
-}
-
-const supabase =
-  supabaseUrl && supabaseServiceRoleKey
-    ? createClient(supabaseUrl, supabaseServiceRoleKey)
-    : null;
 
 export async function POST(request: NextRequest) {
   const { identityId, password } = await request.json();
 
   if (!identityId || !password) {
     return NextResponse.json(
-      { error: "Missing credentials" },
+      { success: false, message: "缺少参数" },
       { status: 400 },
     );
   }
 
-  if (!supabase) {
+  let supabase;
+  try {
+    supabase = createSupabaseServerClient();
+  } catch (error) {
+    console.error("[system/login] Failed to create Supabase client:", error);
     return NextResponse.json(
-      { error: "Server configuration error" },
+      { success: false, message: "服务器配置错误" },
       { status: 500 },
     );
   }
 
-  // 从数据库中查找对应的内部账号
   const { data, error } = await supabase
     .from("system_users")
-    .select("password_hash, is_active")
+    .select("id, identity_id, password_hash, is_active")
     .eq("identity_id", identityId)
+    .eq("is_active", true)
     .maybeSingle();
 
-  if (error) {
+  if (error || !data) {
     console.error("[system/login] Supabase query error:", error);
     return NextResponse.json(
-      { error: "Database error" },
-      { status: 500 },
-    );
-  }
-
-  if (!data || !data.is_active) {
-    return NextResponse.json(
-      { error: "Invalid credentials" },
+      { success: false, message: "ID 或密码错误" },
       { status: 401 },
     );
   }
 
   const ok = await bcrypt.compare(password, data.password_hash);
+
   if (!ok) {
     return NextResponse.json(
-      { error: "Invalid credentials" },
+      { success: false, message: "ID 或密码错误" },
       { status: 401 },
     );
   }
 
-  const response = NextResponse.json({ ok: true });
+  const response = NextResponse.json({ success: true });
 
+  // 可选：设置一个简单的 session cookie，后续可扩展为真正的会话管理
   response.cookies.set(SESSION_COOKIE_NAME, "active", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
