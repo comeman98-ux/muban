@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const SESSION_COOKIE_NAME = "fx_system_session";
+import {
+  SYSTEM_SESSION_COOKIE_NAME,
+  parseSystemSession,
+} from "@/lib/systemSession";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 允许访问登录页本身
   const isLoginPath =
     pathname === "/system/login" ||
     pathname.startsWith("/zh/system/login") ||
@@ -15,20 +16,32 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const isProtectedCoursesPath =
+  const rawSession =
+    request.cookies.get(SYSTEM_SESSION_COOKIE_NAME)?.value ?? null;
+  const session = parseSystemSession(rawSession);
+
+  const requiresLogin =
+    pathname.startsWith("/system") ||
+    pathname.startsWith("/zh/system") ||
+    pathname.startsWith("/en/system");
+
+  if (requiresLogin && !session) {
+    const loginUrl = request.nextUrl.clone();
+    loginUrl.pathname = "/system/login";
+    loginUrl.searchParams.set("from", pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  const isCoursesPath =
     pathname === "/system/courses" ||
     pathname.startsWith("/zh/system/courses") ||
     pathname.startsWith("/en/system/courses");
 
-  if (isProtectedCoursesPath) {
-    const hasSession = request.cookies.get(SESSION_COOKIE_NAME)?.value === "active";
-
-    if (!hasSession) {
-      const loginUrl = request.nextUrl.clone();
-      loginUrl.pathname = "/system/login";
-      loginUrl.searchParams.set("from", pathname);
-      return NextResponse.redirect(loginUrl);
-    }
+  if (isCoursesPath && session && !session.canAccessCourses) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = "/system";
+    redirectUrl.searchParams.set("noCoursesAccess", "1");
+    return NextResponse.redirect(redirectUrl);
   }
 
   return NextResponse.next();
