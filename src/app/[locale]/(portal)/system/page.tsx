@@ -55,56 +55,7 @@ interface IdentityRecord {
   lastLogin: string;
 }
 
-const initialIdentities: IdentityRecord[] = [
-  {
-    id: "QVPD6E7EZ",
-    note: "test",
-    role: "正式学员",
-    enabled: true,
-    createdAt: "2025/11/21 20:10:20",
-    lastLogin: "2025/11/21 20:15:25",
-  },
-  {
-    id: "0MCD5K0V4M",
-    note: "备注 / 姓名",
-    role: "管理员",
-    enabled: true,
-    createdAt: "2025/11/21 20:08:21",
-    lastLogin: "2025/11/21 22:02:13",
-  },
-  {
-    id: "515S1PFDBH",
-    note: "王嘉麒",
-    role: "正式学员",
-    enabled: true,
-    createdAt: "2025/11/21 20:02:11",
-    lastLogin: "-",
-  },
-  {
-    id: "89NY4X3FQ9",
-    note: "张浩波",
-    role: "预备役学员",
-    enabled: true,
-    createdAt: "2025/11/21 20:01:28",
-    lastLogin: "2025/11/24 13:03:21",
-  },
-  {
-    id: "markyang00001",
-    note: "杨港",
-    role: "管理员",
-    enabled: true,
-    createdAt: "2025/11/20 19:26:20",
-    lastLogin: "2025/11/21 20:16:44",
-  },
-  {
-    id: "ADMIN00001",
-    note: "Super Admin",
-    role: "管理员",
-    enabled: false,
-    createdAt: "2025/11/19 23:30:00",
-    lastLogin: "2025/11/24 14:04:35",
-  },
-];
+
 
 export default function InternalSystemPage() {
   const router = useRouter();
@@ -128,6 +79,39 @@ export default function InternalSystemPage() {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
+    const handleResetPassword = async (identityId: string) => {
+    if (
+      !window.confirm(
+        `确定要为身份 ${identityId} 重置密码吗？\n\n系统会生成一个新密码并覆盖旧密码。`,
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/system/users/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identityId }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        alert(data.message ?? "重置密码失败");
+        return;
+      }
+
+      alert(
+        `新密码是：${data.password}\n\n请立刻记录下来，并发给这个学员。`,
+      );
+    } catch (error) {
+      console.error(error);
+      alert("重置密码失败，请稍后重试。");
+    }
+  };
+
 
   // 自动刷新“卫星系统”的 iframe
   useEffect(() => {
@@ -238,21 +222,47 @@ export default function InternalSystemPage() {
     );
   };
 
-  const handleAddIdentity = () => {
-    const index = identities.length + 1;
-    const newId = `NEW${index.toString().padStart(4, "0")}`;
-    setIdentities((prev) => [
-      ...prev,
-      {
-        id: newId,
-        note: "新身份备注",
-        role: "正式学员",
-        enabled: true,
-        createdAt: now.toISOString().slice(0, 19).replace("T", " "),
-        lastLogin: "-",
-      },
-    ]);
+const handleAddIdentity = () => {
+  // 现在新增身份还没有接到数据库，先弹个提示，防止误用
+  alert("新增身份的功能还没接到数据库，现在先不要用这个按钮。");
+};
+
+
+    const handleDeleteIdentity = async (identityId: string) => {
+    if (
+      !window.confirm(
+        `确定要删除身份 ${identityId} 吗？\n\n此操作会从系统中移除该身份，且不可恢复。`
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/system/users/delete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identityId }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        alert(data.message ?? "删除失败");
+        return;
+      }
+
+      // 本地 state 里也把这一行删掉
+      setIdentities((prev) =>
+        prev.filter((row) => row.id !== identityId)
+      );
+
+      alert("删除成功");
+    } catch (err) {
+      console.error(err);
+      alert("删除失败，请稍后再试。");
+    }
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black px-4 py-24">
@@ -548,11 +558,13 @@ export default function InternalSystemPage() {
                 </span>
                 <div className="flex gap-3">
                   <button
-                    type="button"
-                    className="px-4 py-2 text-xs md:text-sm font-semibold rounded-full border border-yellow-500/80 bg-yellow-500/10 text黄色-300 hover:bg-yellow-500/30"
-                  >
-                    操作日志
-                  </button>
+  type="button"
+  onClick={() => router.push("/zh/system/logs")}
+  className="px-4 py-2 text-xs md:text-sm font-semibold rounded-full border border-yellow-500/80 bg-yellow-500/10 text黄色-300 hover:bg黄色-500/30"
+>
+  操作日志
+</button>
+
                   <button
                     type="button"
                     onClick={() => setView("system")}
@@ -659,17 +671,21 @@ export default function InternalSystemPage() {
 
                       <div className="md:flex-[1.1] flex justify-end gap-2">
                         <button
-                          type="button"
-                          className="px-3 py-1 rounded-full border border-yellow-500/80 bg-yellow-500/10 text-xs text黄色-300 hover:bg-yellow-500/30"
-                        >
-                          重置密码
-                        </button>
+  type="button"
+  onClick={() => handleResetPassword(row.id)}
+  className="px-3 py-1 rounded-full border border-yellow-500/80 bg-yellow-500/10 text-xs text黄色-300 hover:bg-yellow-500/30"
+>
+  重置密码
+</button>
+
                         <button
-                          type="button"
-                          className="px-3 py-1 rounded-full border border-red-500/70 bg-red-500/10 text-xs text-red-300 hover:bg-red-500/30"
-                        >
-                          删除
-                        </button>
+  type="button"
+  onClick={() => handleDeleteIdentity(row.id)}
+  className="px-3 py-1 rounded-full border border-red-500/70 bg-red-500/10 text-xs text-red-300 hover:bg-red-500/30"
+>
+  删除
+</button>
+
                       </div>
                     </div>
                   ))}
